@@ -1,0 +1,15 @@
+.tokinfo-btn {
+  font-weight: lighter;
+  color: white;
+  background-color: $green;
+  border: 1px solid $green;
+  padding: 5px 15px;
+  border-radius: 3px;
+  transition: 0.3s ease-in;
+  opacity: 1;
+}
+
+.tokinfo-btn:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
