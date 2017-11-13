@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113144140) do
+ActiveRecord::Schema.define(version: 20171113174454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,14 +22,23 @@ ActiveRecord::Schema.define(version: 20171113144140) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_businesses_on_user_id"
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.bigint "token_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token_id"], name: "index_portfolios_on_token_id"
   end
 
   create_table "tokens", force: :cascade do |t|
     t.string "name"
-    t.bigint "businesses_id"
+    t.bigint "business_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["businesses_id"], name: "index_tokens_on_businesses_id"
+    t.index ["business_id"], name: "index_tokens_on_business_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,9 +56,15 @@ ActiveRecord::Schema.define(version: 20171113144140) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.bigint "portfolio_id"
+    t.bigint "business_id"
+    t.index ["business_id"], name: "index_users_on_business_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["portfolio_id"], name: "index_users_on_portfolio_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "tokens", "businesses", column: "businesses_id"
+  add_foreign_key "businesses", "users"
+  add_foreign_key "portfolios", "tokens"
+  add_foreign_key "tokens", "businesses"
 end
