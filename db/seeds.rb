@@ -9,16 +9,18 @@
 require 'open-uri'
 
 url = "https://api.coinmarketcap.com/v1/ticker/"
-
 data = JSON.parse(open(url).read)
 
 
-puts "Seeding..."
-data.each do |coin|
-  user = User.create!(first_name: Faker::Name.name, email: Faker::Internet.email, password: "123123")
-  business = Business.create!(user_id: user.id, name: Faker::Company.name, address: Faker::Address.city, url: Faker::Internet.url, email: Faker::Internet.email)
-  Token.create!(name: coin["name"], business_id: business.id)
-  print "."
+print "Seeding..."
+data.each_with_index do |coin, i|
+  # just to keep the seed small
+  if i < 10
+    user = User.create!(first_name: Faker::Name.name, email: Faker::Internet.email, password: "123123")
+    business = Business.create!(user_id: user.id, name: Faker::Company.name, address: Faker::Address.city, url: Faker::Internet.url, email: Faker::Internet.email)
+    Token.create!(name: coin["name"], business_id: business.id)
+    print "."
+  end
 end
 
 puts "You're all set"
