@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(145deg, #63ADF2 50%, white 50%, white 100%,);
 }
 
 .banner-left1 {
@@ -44,4 +43,15 @@
 }
 
 .banner-img {
+}
+
+.banner-mobile {
+  background: white;
+  color: #63ADF2;
+  text-align: center;
+  height: calc(100vh - 70px);
+  background-size: cover !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
