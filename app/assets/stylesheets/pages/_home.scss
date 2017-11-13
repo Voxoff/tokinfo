@@ -10,3 +10,14 @@ h2 {
   padding-top: 50px;
 }
 
+.info {
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.info-card {
+  padding: 30px;
+  width: 400px;
+}
