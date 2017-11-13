@@ -1,3 +1,7 @@
 <div class="container">
   <h1>Holla <%= @user.first_name %></h1>
+
+  <!-- Check for businesses -->
+  <%= unless @business.nil? %>
+    <h3>Here's your <%= @business.name %>.</h3>
 </div>
