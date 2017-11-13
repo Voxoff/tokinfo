@@ -5,9 +5,23 @@
   height: calc(100vh - 70px);
   background-size: cover !important;
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   background: linear-gradient(145deg, #63ADF2 50%, white 50%, white 100%,);
+}
+
+.banner-left1 {
+  width: 50%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.banner-right1 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner h1 {
@@ -27,4 +41,7 @@
 .banner-content {
   padding: 10px;
   flex: 0 0 600px;
+}
+
+.banner-img {
 }
