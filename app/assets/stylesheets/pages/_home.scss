@@ -5,10 +5,10 @@ h2 {
   color: #677885;
 }
 
-#continued-gradient {
-  background: linear-gradient(145deg, #63ADF2 13.9%, white 13.9%, white 100%,);
-  padding-top: 50px;
-}
+// #continued-gradient {
+//   background: linear-gradient(145deg, #63ADF2 13.9%, white 13.9%, white 100%,);
+//   padding-top: 50px;
+// }
 
 .info {
   margin: 40px 0;
@@ -20,4 +20,8 @@ h2 {
 .info-card {
   padding: 30px;
   width: 400px;
+}
+
+.background-design {
+  background: linear-gradient(135deg, #63ADF2 40%, white 40%, white 100%,);
 }
