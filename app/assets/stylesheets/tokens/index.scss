@@ -1,0 +1,22 @@
+.card {
+  margin: 50px;
+  height: 255px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  // background-position: 50% 20%;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+hr {
+  border: 2px !important;
+  border-color: black;
+  height: 10px;
+  margin: 1px;
+}
