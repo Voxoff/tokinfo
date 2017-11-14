@@ -11,8 +11,11 @@
             <div class="featured-card-alert">
               <p> Featured! </p>
             </div>
+            <br>
+            <br>
+            <%= cl_image_tag @businesses.last.photo, height: 175, width: 300, crop: :fill %>
             <div class="card-content">
-              <h3><%= @businesses.first.name.upcase %> </h3>
+              <h3><%= @businesses.last.name.upcase %> </h3>
             </div>
           </div>
         </div>
@@ -40,6 +43,8 @@
       <%= link_to business_path(business) do %>
         <div class="col-xs-12 col-sm-3">
           <div class="card">
+            <br>
+            <%= cl_image_tag business.photo, height: 150, width: 200, crop: :fill %>
             <div class="card-content">
               <h3><%= business.name.upcase %> </h3>
             </div>

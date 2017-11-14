@@ -1,14 +1,17 @@
  #contact{
     padding:10px 0 10px;
+    border-radius: 5px;
   }
 
   .contact-text{
     margin:45px auto;
+    border-radius: 5px;
   }
 
   .mail-message-area{
     width:100%;
     padding:0 15px;
+    border-radius: 5px;
   }
 
   .mail-message{
@@ -18,7 +21,7 @@
     -moz-transition: all 0.7s;
     transition: all 0.7s;
     margin:0 auto;
-    border-radius: 0;
+    border-radius: 5px;
   }
 
   .not-visible-message{
@@ -48,26 +51,27 @@
   }
 
   .form:hover{
-    border:1px solid #8BC3A3;
+    border:1px solid $green;
   }
 
   .form:focus{
     color: white;
     outline: none;
-    border:1px solid #8BC3A3;
+    border:1px solid $green;
   }
 
   .textarea{
     height: 200px;
     max-height: 200px;
     max-width: 100%;
+    border-radius: 5px;
   }
 
 /* Generic Button Styles */
 
   .button{
     padding:8px 12px;
-    background:#0A5175;
+    background:$green;
     display: block;
     width:120px;
     margin:10px 0 0px 0;
@@ -83,7 +87,7 @@
   }
 
   .button:hover{
-    background:#8BC3A3;
+    background:$green;
     color:white;
   }
 
@@ -95,7 +99,7 @@
     height: auto;
     padding:15px;
     color:#fff;
-    background:#8BC3A3;
+    background:$green;
     border:none;
     border-radius:3px;
     outline: none;
@@ -109,9 +113,10 @@
   }
 
   .form-btn:hover{
-    background:#111;
+    background:$green;
     color: white;
     border:none;
+    opacity: 0.8;
   }
 
   .form-btn:active{
@@ -122,7 +127,7 @@ center{
 }
 input {
     position: relative;
-    z-index: 9999;
+    border-radius: 5px;
 }
 
 .form-container {
