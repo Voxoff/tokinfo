@@ -7,6 +7,7 @@ class BusinessesController < ApplicationController
 
   def show
     authorize @business
+    @tokens = Token.where(business_id: @business.id)
   end
 
   def new
