@@ -5,4 +5,5 @@ class Business < ApplicationRecord
   validates :url, presence: true
   validates :address, presence: true
   validates :email, presence: true
+   mount_uploader :photo, PhotoUploader
 end
