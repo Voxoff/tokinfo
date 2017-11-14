@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 20171113182155) do
 
   create_table "tokens", force: :cascade do |t|
     t.string "name"
-    t.bigint "business_id"
+    t.bigint "businesses_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.index ["business_id"], name: "index_tokens_on_business_id"
+    t.index ["businesses_id"], name: "index_tokens_on_businesses_id"
     t.index ["user_id"], name: "index_tokens_on_user_id"
   end
 
@@ -56,6 +56,6 @@ ActiveRecord::Schema.define(version: 20171113182155) do
   end
 
   add_foreign_key "businesses", "users"
-  add_foreign_key "tokens", "businesses"
+  add_foreign_key "tokens", "businesses", column: "businesses_id"
   add_foreign_key "tokens", "users"
 end
