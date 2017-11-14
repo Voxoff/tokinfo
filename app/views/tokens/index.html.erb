@@ -1,9 +1,30 @@
-<div class="white-wrapper-section">
+<div class="background-design">
   <div class="navbar-offset"></div>
   <div class="text-center">
     <h2>Featured</h2>
     <br>
     <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <div class="featured-card-alert">
+              <p> Featured! </p>
+            </div>
+            <div class="card-content">
+              <h3><%= @tokens.first.name.upcase %> </h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <div class="card">
+            <div class="card-content">
+              <h3>GRAPH OF LAST WEEK'S PERFORMANCE </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -34,3 +34,21 @@
   position: absolute;
   bottom: 15px;
 }
+
+.featured-card-alert {
+  background-color: $green;
+  color: white;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-radius: 10px;
+  padding: 3px 5px;
+}
+
+.featured-card-alert p {
+  color: white;
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  text-shadow: none;
+}
