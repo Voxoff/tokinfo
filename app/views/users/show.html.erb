@@ -1,8 +1,29 @@
 <div class="main">
-  <h1>Holla <%= @user.first_name %></h1>
+  <h1>Holla <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+  <h3><%= @user.email %></h3>
+  <hr class="line">
 
-  <!-- Check for businesses -->
-  <% unless @business.name.nil? %>
-    <h3>Here's your business: <%= @business.name %>.</h3>
+  <h1>Businesses:</h1>
+
+  <% @user.businesses.each do |business| %>
+    <div class="token_card">
+      <h3><%= business.name %></h3>
+      <h4><%= business.email %></h4>
+      <a href="<%= business.url %>"><%= business.url %></a>
+    </div>
   <% end %>
+
+  <h1>Tokens:</h1>
+
+  <% @user.tokens.each do |token| %>
+     <div class="token_card">
+      <h3><%= token.name %></h3>
+      <h4><%= Business.find(token.business_id).name %></h4>
+    </div>
+  <% end %>
+
 </div>
+
+
+  <h3><%= @user.businesses.first.name %></h3>
+  <h4><%= @user.id %></h4>
