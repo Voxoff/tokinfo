@@ -6,7 +6,7 @@ base = "https://www.cryptocompare.com/"
 
 # admin account for easy access
   admin = User.create!(first_name: "admin", email: "admin@admin.com", password: "123123")
-  admin_business = Business.create!(user_id: admin.id, name: "admin", address: "admin street", url: "admin.com", email: "admin@admin.com")
+  admin_business = Business.create!(user_id: admin.id, name: "admin", address: "admin street", url: "admin.com", email: "admin@admin.com", remote_photo_url: "https://source.unsplash.com/random/400x400")
   Token.create!(name: "admin", business_id: admin_business.id, user_id: admin.id, remote_photo_url: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAbDAAAAJDMzNzE3YWY3LTc0MWMtNGNjNi04M2QxLTQ2YWE3NDY5NThkZg.jpg")
 
 print "Seeding..."
@@ -15,7 +15,7 @@ data["Data"].each_with_index do |(key,value), i|
   if i < 5
     # need a user and business for each token
     user = User.create!(first_name: Faker::Name.name, last_name: Faker::Name.name,  email: Faker::Internet.email, password: "123123")
-    business = Business.create!(user_id: user.id, name: Faker::Company.name, address: Faker::Address.city, url: Faker::Internet.url, email: Faker::Internet.email)
+    business = Business.create!(user_id: user.id, name: Faker::Company.name, address: Faker::Address.city, url: Faker::Internet.url, email: Faker::Internet.email, remote_photo_url: "https://source.unsplash.com/random/400x400")
     Token.create!(name: value["CoinName"], business_id: business.id, user_id: user.id, remote_photo_url: base + value["ImageUrl"])
     print "."
   end
