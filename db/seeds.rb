@@ -13,7 +13,7 @@ data.each_with_index do |coin, i|
   # just to keep the seed small
   if i < 10
     # need a user and business for each token
-    user = User.create!(first_name: Faker::Name.name, email: Faker::Internet.email, password: "123123")
+    user = User.create!(first_name: Faker::Name.name, last_name: Faker::Name.name,  email: Faker::Internet.email, password: "123123")
     business = Business.create!(user_id: user.id, name: Faker::Company.name, address: Faker::Address.city, url: Faker::Internet.url, email: Faker::Internet.email)
     Token.create!(name: coin["name"], business_id: business.id, user_id: user.id)
     print "."
