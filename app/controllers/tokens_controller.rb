@@ -41,7 +41,7 @@ class TokensController < ApplicationController
 
 
   def token_params
-    params.require(:token).permit(:name, :image)
+    params.require(:token).permit(:name, :image, :photo)
   end
 
   def set_token
