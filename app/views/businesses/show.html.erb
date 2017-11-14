@@ -1,7 +1,11 @@
 <div class="main">
+
   <h1><%= @business.name.capitalize %></h1>
   <h3><%= @business.email %></h3>
   <a href="<%= @business.url %> "><h5>Website</h5></a>
+  <div >
+    <%= cl_image_tag @business.photo, height: 130, width: 200, crop: :fill%>
+  </div>
   <hr class="line">
 
   <h2>Offerings:</h2>
