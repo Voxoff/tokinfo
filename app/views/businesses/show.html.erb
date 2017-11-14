@@ -1,11 +1,17 @@
 <div class="main">
+  <div class="show_container">
+    <div class="show_sub_container">
+      <h1><%= @business.name.capitalize %></h1>
+      <h3><%= @business.email %></h3>
+      <a href="<%= @business.url %> "><h5>Website</h5></a>
+    </div>
+    <div class="text_container">
+      <p><%= @business.description %></p>
+    </div>
+    <%= cl_image_tag @business.photo, height: 150, width: 200, crop: :fill, class: "show_sub_container2"%>
 
-  <h1><%= @business.name.capitalize %></h1>
-  <h3><%= @business.email %></h3>
-  <a href="<%= @business.url %> "><h5>Website</h5></a>
-  <div >
-    <%= cl_image_tag @business.photo, height: 130, width: 200, crop: :fill%>
   </div>
+
   <hr class="line">
 
   <h2>Offerings:</h2>
@@ -16,6 +22,7 @@
         <div class="col-xs-6 col-xs-offset-3">
           <div class="token_card">
             <h3><%= token.name %></h3>
+            <h5><%= token.business.name %></h5>
             <div class="token_card_image">
               <%= cl_image_tag token.photo, height: 130, width: 200, crop: :fill%>
             </div>
