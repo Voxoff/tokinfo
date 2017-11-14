@@ -1,7 +1,8 @@
 require 'open-uri'
 
-url = "https://api.coinmarketcap.com/v1/ticker/"
+url = "https://min-api.cryptocompare.com/data/all/coinlist"
 data = JSON.parse(open(url).read)
+base = "https://www.cryptocompare.com/"
 
 # admin account for easy access
   admin = User.create!(first_name: "admin", email: "admin@admin.com", password: "123123")
@@ -9,13 +10,13 @@ data = JSON.parse(open(url).read)
   Token.create!(name: "admin", business_id: admin_business.id, user_id: admin.id)
 
 print "Seeding..."
-data.each_with_index do |coin, i|
+data["Data"].each_with_index do |(key,value), i|
   # just to keep the seed small
-  if i < 10
+  if i < 5
     # need a user and business for each token
     user = User.create!(first_name: Faker::Name.name, last_name: Faker::Name.name,  email: Faker::Internet.email, password: "123123")
     business = Business.create!(user_id: user.id, name: Faker::Company.name, address: Faker::Address.city, url: Faker::Internet.url, email: Faker::Internet.email)
-    Token.create!(name: coin["name"], business_id: business.id, user_id: user.id)
+    Token.create!(name: value["CoinName"], business_id: business.id, user_id: user.id, remote_photo_url: base + value["ImageUrl"])
     print "."
   end
 end
