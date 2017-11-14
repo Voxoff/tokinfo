@@ -1,0 +1,52 @@
+<div class="background-design">
+  <div class="navbar-offset"></div>
+  <div class="text-center">
+    <h2>Featured</h2>
+    <br>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <div class="featured-card-alert">
+              <p> Featured! </p>
+            </div>
+            <div class="card-content">
+              <h3><%= @businesses.first.name.upcase %> </h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <div class="card">
+            <div class="card-content">
+              <h3>CEO PICTURE AND BUSINESS DESCRIPTION </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transparent-wrapper-section">
+  <div class="text-center">
+    <h2>All Businesses</h2>
+    <br>
+    <br>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% @businesses.each do |business| %>
+      <%= link_to business_path(business) do %>
+        <div class="col-xs-12 col-sm-3">
+          <div class="card">
+            <div class="card-content">
+              <h3><%= business.name.upcase %> </h3>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

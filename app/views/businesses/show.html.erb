@@ -1,0 +1,25 @@
+<div class="main">
+  <h1><%= @business.name.capitalize %></h1>
+  <h3><%= @business.email %></h3>
+  <a href="<%= @business.url %> "><h5>Website</h5></a>
+  <hr class="line">
+
+  <h2>Offerings:</h2>
+
+  <div class="container">
+    <div class="row">
+      <% @tokens.each do |token| %>
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="token_card">
+            <h3><%= token.name %></h3>
+            <div class="token_card_image">
+              <%= cl_image_tag token.photo, height: 130, width: 200, crop: :fill%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
