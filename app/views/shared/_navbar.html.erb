@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+    <%= image_tag "logo-green.png" %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -10,8 +10,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "ICOs", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Tokens", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Businesses", businesses_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Tokens", tokens_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -47,10 +47,12 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">ICOs</a></li>
-        <li><a href="#">Tokens</a></li>
+        <li><%= link_to "Businesses", businesses_path %></li>
+        <li><%= link_to "Tokens", tokens_path %></li>
         <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Log out</a></li>
+        <li><%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %></li>
       </ul>
     </div>
   </div>
