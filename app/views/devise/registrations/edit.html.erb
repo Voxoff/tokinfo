@@ -16,7 +16,7 @@
 
     <!-- added for photos -->
     <% if current_user.photo.url.present? %>
-      <%= cl_image_tag current_user.last.photo, height: 50, width: 50, crop: :fill, radius: :max%>
+      <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill, radius: :max%>
       <p>Some stuff abt how to remove photo</p>
     <% else %>
       <%= f.input :photo, hint:"Please enter a url of your photo", required:false %>
