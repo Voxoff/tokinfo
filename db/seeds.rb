@@ -7,7 +7,7 @@ base = "https://www.cryptocompare.com/"
 # admin account for easy access
   admin = User.create!(first_name: "admin", email: "admin@admin.com", password: "123123")
   admin_business = Business.create!(user_id: admin.id, name: "admin", address: "admin street", url: "admin.com", email: "admin@admin.com")
-  Token.create!(name: "admin", business_id: admin_business.id, user_id: admin.id)
+  Token.create!(name: "admin", business_id: admin_business.id, user_id: admin.id, remote_photo_url: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAbDAAAAJDMzNzE3YWY3LTc0MWMtNGNjNi04M2QxLTQ2YWE3NDY5NThkZg.jpg")
 
 print "Seeding..."
 data["Data"].each_with_index do |(key,value), i|
