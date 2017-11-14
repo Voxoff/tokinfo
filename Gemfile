@@ -15,6 +15,9 @@ gem 'redis'
 # seeding
 gem 'faker'
 
+#images
+gem 'cloudinary'
+
 # front end
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
