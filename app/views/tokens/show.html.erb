@@ -7,9 +7,27 @@
         <h5>First offered: <%= @token.created_at %></h5>
         <h5 class="token_card_price">Current price:</h5>
         <div class="token_card_image"><%= cl_image_tag @token.photo, height: 130, width: 200, crop: :fill%></div>
-
-
       </div>
     </div>
   </div>
 </div>
+
+<h1>Recenty viewed by:</h1>
+
+<div class="container">
+  <div class="row">
+    <% @users.each do |user| %>
+      <% user.tokens.each do |token| %>
+        <% if token.id == @token.id %>
+          <div class="col-xs-6 col-xs-offset-3">
+            <div class="token_card">
+              <h3><%= user.first_name %><%= user.last_name %> </h3>
+              <h5><%= user.email %></h5>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
