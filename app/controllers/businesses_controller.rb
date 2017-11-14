@@ -2,7 +2,7 @@ class BusinessesController < ApplicationController
       before_action :set_business, only: [:show, :edit, :update, :destroy]
 
   def index
-    @businesss = Business.all
+    @businesses = Business.all
   end
 
   def show
