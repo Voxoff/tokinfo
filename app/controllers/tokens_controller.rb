@@ -2,7 +2,7 @@ class TokensController < ApplicationController
     before_action :set_token, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tokens = Token.all
+    @tokens = policy_scope(Token)
   end
 
   def show
