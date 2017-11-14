@@ -6,6 +6,7 @@ class TokensController < ApplicationController
   end
 
   def show
+    @users = User.all
     authorize(@token)
   end
 
