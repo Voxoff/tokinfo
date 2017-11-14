@@ -6,6 +6,7 @@ class TokensController < ApplicationController
   end
 
   def show
+    authorize(@token)
   end
 
   def new
