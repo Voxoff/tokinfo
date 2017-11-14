@@ -1,17 +1,32 @@
-
-<div class="navbar-offset">
-
+<div class="white-wrapper-section">
+  <div class="navbar-offset"></div>
+  <div class="text-center">
+    <h2>Featured</h2>
+    <br>
+    <br>
+  </div>
 </div>
+
+<div class="transparent-wrapper-section">
+  <div class="text-center">
+    <h2>All Tokens</h2>
+    <br>
+    <br>
+  </div>
   <div class="container">
     <div class="row">
       <% @tokens.each do |token| %>
-      <div class="col-xs-12 col-sm-3">
-        <div class="card">
-          <p>Name: <%= token.name %> </p>
-          <p>Business: <%= token.business_id %> </p>
-          <p>User_ID: <%= token.user_id %> </p>
+      <%= link_to token_path(token) do %>
+        <div class="col-xs-12 col-sm-3">
+          <div class="card">
+            <div class="card-content">
+              <h3><%= token.name.upcase %> </h3>
+              <p>Offered By: <%= token.business.name %> </p>
+            </div>
+          </div>
         </div>
-      </div>
         <% end %>
+      <% end %>
     </div>
   </div>
+</div>
