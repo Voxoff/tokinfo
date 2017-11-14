@@ -17,6 +17,7 @@ gem 'faker'
 
 #images
 gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 # front end
 gem 'autoprefixer-rails'
