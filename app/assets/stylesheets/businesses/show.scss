@@ -66,6 +66,16 @@
   color: black !important;
 }
 
+.offerings-area {
+  position: absolute;
+  width: 81%;
+}
+
+.btn-position-right {
+  position: absolute;
+  right: 10px;
+}
+
 .card-link {
   position: absolute;
   top: 0;
@@ -75,6 +85,7 @@
   z-index: 99;
   opacity: 0;
 }
+
 
 // .show_image {
 
