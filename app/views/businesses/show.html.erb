@@ -32,5 +32,34 @@
     </div>
   </div>
 
+  <h2>Headquarters:</h2>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div id="map" style="width: 100%; height: 300px;"></div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+      var handler = Gmaps.build('Google', { markers: { clusterer: undefined } });
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(
+          [
+            {
+              "lat": <%= raw @business.latitude %>,
+              "lng": <%= raw @business.longitude %>,
+              <!-- "infowindow": "<h1>Aix - Marseille</h1><p><img src='https://res.cloudinary.com/wagon/image/upload/c_fill,h_200/v1500988849/nqoqw5sinlj1hqvxrfyi.jpg' height='200'></p>" -->
+            },
+          ]
+        );
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+  <% end %>
+<% end %>
 
