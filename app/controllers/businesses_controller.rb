@@ -3,6 +3,7 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = policy_scope(Business)
+    @featured = Business.last
   end
 
   def show

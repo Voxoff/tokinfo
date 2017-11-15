@@ -14,7 +14,7 @@
               </div>
               <br>
               <br>
-              <%= cl_image_tag @tokens.last.photo, height: 150, width: 200, crop: :fill %>
+              <%= cl_image_tag @tokens.last.photo, height: 150, width: 200, crop: :fit %>
               <div class="card-content">
                 <h3><%= @tokens.last.name.upcase %></h3>
               </div>
