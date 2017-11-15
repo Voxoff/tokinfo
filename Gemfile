@@ -28,6 +28,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# maps n shit
+gem "geocoder"
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
