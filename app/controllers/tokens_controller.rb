@@ -11,15 +11,17 @@ class TokensController < ApplicationController
   end
 
   def new
+    @business = Business.find(params[:business_id])
     @token = Token.new
     authorize(@token)
   end
 
   def create
     @token = Token.new(token_params)
+    @token.business = Business.find(params[:business_id])
     authorize(@token)
     @token.save
-    redirect_to token_path(@token)
+    redirect_to tokens_path(@token)
   end
 
   def edit
@@ -42,7 +44,7 @@ class TokensController < ApplicationController
 
 
   def token_params
-    params.require(:token).permit(:name, :image, :photo)
+    params.require(:token).permit(:name, :image, :photo, :description)
   end
 
   def set_token
