@@ -26,7 +26,7 @@
     </div>
     <div class="col-xs-12 col-sm-3">
       <h4 class="offerings">Token Offerings:</h4>
-        <% @tokens.each do |token| %>
+        <% @user.tokens.each do |token| %>
         <%= link_to token_path(token) do %>
           <div class="card">
             <br>
