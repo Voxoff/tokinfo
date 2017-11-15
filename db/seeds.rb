@@ -1,5 +1,7 @@
 require 'open-uri'
 
+User.destroy_all
+
 url = "https://min-api.cryptocompare.com/data/all/coinlist"
 data = JSON.parse(open(url).read)
 base = "https://www.cryptocompare.com/"

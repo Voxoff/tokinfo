@@ -44,14 +44,24 @@
     <div class="text-center">
       <h2>Popular Right Now</h2>
     </div>
+      <div class="row">
+        <% @tokens.each do |token| %>
+        <%= link_to token_path(token) do %>
+          <div class="col-xs-12 col-sm-3">
+            <div class="card">
+              <br>
+              <%= cl_image_tag token.photo, height: 150, width: 200, crop: :fill %>
+              <div class="card-content">
+                <h3><%= token.name.upcase %> </h3>
+                <p>Offered By: <%= token.business.name %> </p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="white-wrapper-section">
-  <div class="text-center">
-    <h2>Top Insights</h2>
-  </div>
-</div>
 <div class="white-wrapper-section form-container">
   <div class="container">
     <div class="text-center">
