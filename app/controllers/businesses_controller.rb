@@ -18,7 +18,8 @@ class BusinessesController < ApplicationController
 
   def create
     binding.pry
-    @business = Business.new(business_params, user_id: current_user)
+    @business = Business.new(business_params)
+    @business.user = current_user
     authorize @business
     @business.save
     redirect_to root_path
