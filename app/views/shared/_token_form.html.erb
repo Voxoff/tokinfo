@@ -1,2 +1,35 @@
-
+<div class="main">
+    <div class="container">
+      <div class="text-center">
+       <h2>Create a token</h2>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <div class="contact-form">
+            <%= simple_form_for(@token) do |f| %>
+            <%= f.error_notification %>
+              <div class="form-inputs">
+                <%= f.input :name, required: true %>
+                <%= f.input :description, required: true %>
+              </div>
+              <% if current_user.photo.url.present? %>
+                <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill, radius: :max%>
+                <%= f.input :photo, hint:"Would you like to change your photo?", required:false, class: "btn btn-default btn-primary", label: false%>
+              <% else %>
+                <%= f.input :photo, hint:"Please enter a url of your photo", required:false %>
+              <% end %>
+              </div>
+              <!-- Otherwise the image hits the button -->
+              <div class="space" style="padding-top:10px"></div>
+              <div class="form-actions">
+                <%= f.button :submit, "Create", class: "btn btn-default btn-primary btn-group align"%>
+                <%= link_to "Back", :back, class: "btn btn-default btn-primary btn-group align"%>
+              </div>
+            <% end %>
+          <hr>
+        </div>
+      </div>
+    </div>
+</div>
 
