@@ -14,11 +14,10 @@
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                   <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
                 <% end %>
-                <%= f.input :password, autocomplete: "off", hint: "Leave this blank if you don't want to change it", required: false %>
-                <%= f.input :password_confirmation, required: false %>
-                <%= f.input :current_password, hint: "We need your current password to confirm your changes", required: true %>
-                <!-- added for photos -->
-                <%= f.input :photo, hint:"Please enter a url of your photo", required:false, class: "btn btn-default btn-primary"%>
+                <%= f.input :first_name, required: true %>
+                <%= f.input :last_name, required: true %>
+                <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                <%= f.input :password_confirmation, required: true %>
               </div>
               <!-- Otherwise the image hits the button -->
               <div class="space" style="padding-top:10px"></div>
