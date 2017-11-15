@@ -36,7 +36,7 @@
           <% if token.id == @token.id %>
             <%= link_to user_path(user) do %>
               <div class="col-xs-12 col-sm-3">
-                <div class="card">
+                <div class="card shortest">
                   <br>
                   <%= cl_image_tag user.photo, height: 150, width: 200, crop: :fill %>
                   <h3><%= user.first_name %><%= user.last_name %> </h3>
