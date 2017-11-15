@@ -12,7 +12,24 @@
   </div>
 </div>
 
-<h1>Recenty viewed by:</h1>
+<% if @token.user == current_user %>
+  <div class="front-nav-button-location">
+    <div class="front-nav-button">
+      <%= link_to token_path(@token), method: :delete, class: "btn btn-danger btn-circle" do %>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="front-nav-button-location-2">
+    <div class="front-nav-button">
+      <%= link_to edit_token_path(@token), class: "btn btn-info btn-circle" do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<h2>Recently viewed by:</h2>
 
 <div class="container">
   <div class="row">
