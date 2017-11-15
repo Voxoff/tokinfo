@@ -14,7 +14,7 @@
               </div>
               <br>
               <br>
-              <%= cl_image_tag @featured.photo, height: 175, width: 300, crop: :fit %>
+              <%= cl_image_tag @featured.photo, height: 175, width: 300, crop: :fill %>
               <div class="card-content">
                 <h3><%= @businesses.last.name.upcase %> </h3>
               </div>
@@ -37,7 +37,7 @@
           <div class="card">
             <br>
             <h3>Offering:</h3>
-            <%= cl_image_tag @featured.tokens.first.photo, height: 150, width: 200, crop: :fit %>
+            <%= cl_image_tag @featured.tokens.first.photo, height: 150, width: 200, crop: :fill %>
             <div class="card-content">
               <h3><%= @featured.tokens.first.name.upcase %> </h3>
             </div>
