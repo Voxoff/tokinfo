@@ -1,5 +1,5 @@
 class Token < ApplicationRecord
   belongs_to :business
-  belongs_to :user, optional: true
+  has_many :followings
   mount_uploader :photo, PhotoUploader
 end
