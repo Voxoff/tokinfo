@@ -19,7 +19,8 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    @following = Following.new(following_params)
+    @following = Following.find(params[:id])
+    authorize @following
     @following.destroy
     redirect_to root
   end

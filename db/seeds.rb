@@ -19,7 +19,7 @@ data["Data"].each_with_index do |(key,value), i|
     user = User.create!(first_name: Faker::Name.name, last_name: Faker::Name.name,  email: Faker::Internet.email, password: "123123", remote_photo_url: "https://source.unsplash.com/random/400x400&sig=#{i}&smile")
     business = Business.create!(user_id: user.id, name: Faker::Company.name, address: Faker::Address.city, url: Faker::Internet.url, email: Faker::Internet.email, remote_photo_url: "https://source.unsplash.com/random/400x400&sig=#{i}", description: "Businesses that have compelling ethoses end up winning clients even when their prices are not the best in the market or their products or services might not be the most innovative available. Their ethoses may capture the attention of their niches, and their clients develop an emotional attachment.")
     Token.create!(name: value["CoinName"], business_id: business.id, user_id: user.id, remote_photo_url: base + value["ImageUrl"])
-    Following.create!(user_id: user.id, token_id: admin_token.id)
+    Following.create!(user: user, token: admin_token)
     print "."
   end
 end
