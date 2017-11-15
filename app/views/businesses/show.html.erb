@@ -3,7 +3,7 @@
   <div class="navbar-offset"></div>
   <div class="show_container">
     <div class="show_sub_container">
-      <a href="<%= @business.url %> "><h1><%= @business.name.capitalize %></h1></a>
+      <a href="<%= @business.url %> "><h1 class="shadow-hover"><%= @business.name.capitalize %></h1></a>
       <h3><%= @business.email %></h3>
     </div>
     <%= cl_image_tag @business.photo, height: 200, width: 230, crop: :fill, id: "bus_img"%>
