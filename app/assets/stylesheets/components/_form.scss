@@ -134,6 +134,21 @@ input {
   padding: 0px;
   margin: 0px;
   margin-bottom: 30px;
-  padding-bottom: 30px;
-  height:345px;
+}
+
+#home_page_form {
+  padding-bottom: 30px
+}
+
+.align{
+  width: 49%;
+}
+
+label {
+    font-weight: normal !important;
+}
+
+abbr[title]{
+  border-bottom: none;
+  text-decoration: none;
 }
