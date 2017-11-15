@@ -25,10 +25,6 @@
                     <!-- added for photos -->
                     <% if current_user.photo.url.present? %>
                       <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill, radius: :max%>
-                      <!-- If we want to have a remove photo option -->
-                      <%#= f.label, :remove_photo do %>
-                        <%#= f.check_box :remove_photo %>
-                      <%# end %>
                     <% else %>
                       <%= f.input :photo, hint:"Please enter a url of your photo", required:false %>
                     <% end %>
