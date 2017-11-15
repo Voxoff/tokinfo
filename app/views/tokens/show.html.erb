@@ -10,7 +10,7 @@
   <hr class="line">
 </div>
 
-<% if @token.user == current_user %>
+<% if @token.business.user == current_user %>
   <div class="front-nav-button-location">
     <div class="front-nav-button">
       <%= link_to token_path(@token), method: :delete, class: "btn btn-danger btn-circle" do %>

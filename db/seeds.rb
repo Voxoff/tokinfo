@@ -7,9 +7,9 @@ data = JSON.parse(open(url).read)
 base = "https://www.cryptocompare.com/"
 
 # admin account for easy access
-  admin = User.create!(first_name: "admin", email: "admin@admin.com", password: "123123")
+  admin = User.create!(first_name: "admin", email: "admin@admin.com", password: "123123", , remote_photo_url: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAbDAAAAJDMzNzE3YWY3LTc0MWMtNGNjNi04M2QxLTQ2YWE3NDY5NThkZg.jpg")
   admin_business = Business.create!(user_id: admin.id, name: "admin", address: "admin street", url: "admin.com", email: "admin@admin.com", remote_photo_url: "https://source.unsplash.com/random/400x400")
-  admin_token = Token.create!(name: "admin", business_id: admin_business.id, user_id: admin.id, remote_photo_url: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAbDAAAAJDMzNzE3YWY3LTc0MWMtNGNjNi04M2QxLTQ2YWE3NDY5NThkZg.jpg")
+  admin_token = Token.create!(name: "admin", business_id: admin_business.id, user_id: admin.id, remote_photo_url: "https://bitcoin.org/img/icons/opengraph.png")
 
 print "Seeding..."
 data["Data"].each_with_index do |(key,value), i|
