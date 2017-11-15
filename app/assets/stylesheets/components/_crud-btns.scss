@@ -1,0 +1,23 @@
+.front-nav-button-location {
+  position: fixed;
+  right: 5vh;
+  top: 90vh;
+}
+
+.front-nav-button-location-2 {
+  position: fixed;
+  right: 5vh;
+  top: 80vh;
+}
+
+.btn-circle {
+  border-radius: 50% !important;
+  height: 56px;
+  width: 56px;
+  font-size: 30px;
+  transition: all 1s;
+}
+
+.btn-circle:hover {
+  transform: rotate(180deg);
+}
