@@ -44,7 +44,7 @@
       <div class="offerings-area">
         <div class="btn-position-right">
           <% if @business.user == current_user %>
-            <%= link_to "+", new_token_path, class: "btn btn-primary btn-circle" %>
+            <%= link_to "+", new_business_token_path(@business), class: "btn btn-primary btn-circle" %>
           <% end %>
         </div>
       </div>
