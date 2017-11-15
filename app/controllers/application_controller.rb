@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
 
     # For updating
-    devise_parameter_sanitizer.permit(:account_update, keys: [:photo])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:photo, :description])
   end
 
   # Uncomment when you *really understand* Pundit!
