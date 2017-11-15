@@ -5,7 +5,7 @@
       <h1 class="white"><%= @token.name %></h1>
       <a href="<%= @token.business.url %> "><h3 class="shadow-hover"><%= @token.business.name.capitalize %></h3></a>
     </div>
-    <%= cl_image_tag @token.photo, height: 200, width: 230, crop: :fill, id: "bus_img"%>
+    <%= cl_image_tag @token.photo, height: 200, width: 230, crop: :fit, id: "bus_img"%>
   </div>
   <hr class="line">
 </div>
