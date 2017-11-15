@@ -8,6 +8,7 @@ class BusinessesController < ApplicationController
   def show
     authorize @business
     @tokens = Token.where(business_id: @business.id)
+    @business_coordinates = { lat: @business.latitude, lng: @business.longitude }
   end
 
   def new
