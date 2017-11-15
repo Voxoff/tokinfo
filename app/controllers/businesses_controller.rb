@@ -18,7 +18,6 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    binding.pry
     @business = Business.new(business_params)
     @business.user = current_user
     authorize @business
