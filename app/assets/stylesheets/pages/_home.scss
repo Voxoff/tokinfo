@@ -25,3 +25,9 @@ h2 {
 .background-design {
   background: linear-gradient(135deg, #63ADF2 40%, white 40%, white 100%,);
 }
+
+.video-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
