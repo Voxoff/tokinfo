@@ -18,10 +18,12 @@ class BusinessesController < ApplicationController
   end
 
   def create
+    binding.pry
     @business = Business.new(business_params)
+    @business.user = current_user
     authorize @business
     @business.save
-    redirect_to business_path(@business)
+    redirect_to root_path
   end
 
   def edit
@@ -43,7 +45,7 @@ class BusinessesController < ApplicationController
   private
 
   def business_params
-    params.require(:business).permit(:name, :image, :email, :address, :url, :photo)
+    params.require(:business).permit(:name, :image, :email, :address, :url, :photo, :description)
   end
 
   def set_business
