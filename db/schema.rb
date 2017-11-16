@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116111715) do
+ActiveRecord::Schema.define(version: 20171116131435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20171116111715) do
     t.index ["user_id"], name: "index_followings_on_user_id"
   end
 
+  create_table "prices_tables", force: :cascade do |t|
+    t.float "price_gbp"
+    t.bigint "tokens_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tokens_id"], name: "index_prices_tables_on_tokens_id"
+  end
+
   create_table "tokens", force: :cascade do |t|
     t.string "name"
     t.bigint "business_id"
@@ -47,7 +55,7 @@ ActiveRecord::Schema.define(version: 20171116111715) do
     t.bigint "user_id"
     t.string "photo"
     t.text "description"
-    t.float "price_gbp"
+    t.float "latest_price_gbp"
     t.float "market_cap_gbp"
     t.float "one_day_volume_gbp"
     t.float "percentage_change_1h"
@@ -83,6 +91,7 @@ ActiveRecord::Schema.define(version: 20171116111715) do
   add_foreign_key "businesses", "users"
   add_foreign_key "followings", "tokens"
   add_foreign_key "followings", "users"
+  add_foreign_key "prices_tables", "tokens", column: "tokens_id"
   add_foreign_key "tokens", "businesses"
   add_foreign_key "tokens", "users"
 end

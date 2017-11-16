@@ -1,6 +1,6 @@
 class AddLiveDataToTokens < ActiveRecord::Migration[5.1]
   def change
-    add_column :tokens, :price_gbp, :float
+    add_column :tokens, :latest_price_gbp, :float
     add_column :tokens, :market_cap_gbp, :float
     add_column :tokens, :one_day_volume_gbp, :float
     add_column :tokens, :percentage_change_1h, :float
