@@ -36,6 +36,7 @@
           <div class="card">
             <br>
             <%= cl_image_tag token.photo, height: 150, width: 200, crop: :fill %>
+            <%= render "shared/followbtn", token: token %>
             <h3><%= token.name %></h3>
           </div>
         <% end %>
