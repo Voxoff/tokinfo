@@ -37,7 +37,11 @@
           <div class="card">
             <br>
             <h3>Offering:</h3>
+            <% if @featured.tokens.first.photo %>
             <%= cl_image_tag @featured.tokens.first.photo, height: 150, width: 200, crop: :fill %>
+            <% else %>
+            <%= image_tag "http://via.placeholder.com/350x150" %>
+            <% end %>
             <div class="card-content">
               <h3><%= @featured.tokens.first.name.upcase %> </h3>
             </div>
