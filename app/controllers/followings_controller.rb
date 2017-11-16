@@ -10,10 +10,10 @@ class FollowingsController < ApplicationController
 
   def create
     @following = Following.new(following_params)
-    @following.user_id = user.id
+    @following.user_id = current_user.id
     authorize @following
     if @following.save
-      redirect_to following_path(@following)
+      redirect_to root
     else
       redirect_to root
     end
@@ -29,6 +29,6 @@ class FollowingsController < ApplicationController
   private
 
   def following_params
-    params.require(:following).permit(:id)
+    params.permit(:token_id)
   end
 end

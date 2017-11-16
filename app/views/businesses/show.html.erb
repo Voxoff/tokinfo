@@ -58,7 +58,7 @@
                 <p>Offered By: <%= token.business.name %> </p>
               </div>
               <div class="follow-btn">
-                <%= link_to token_followings_path, method: :post, class: "btn btn-default" do %>
+                <%= link_to token_followings_path(token), method: :post, class: "btn btn-default" do %>
                 <i class="fa fa-money" aria-hidden="true"></i>
                 <% end %>
                 </div>
