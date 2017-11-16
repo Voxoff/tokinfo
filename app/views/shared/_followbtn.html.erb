@@ -1,5 +1,13 @@
-<div class="follow-btn">
+<div class="follow-btn" id="insert" data-toggle="popover" data-content="Follow" data-placement="top">
   <%= link_to token_followings_path(token), method: :post, class: "btn btn-default" do %>
-  <i class="fa fa-money" aria-hidden="true"></i>
+  <i class="fa fa-star-o" aria-hidden="true"></i>
   <% end %>
 </div>
+
+<% content_for(:whateverjs) do %>
+  <script>
+    $(document).ready(function () {
+     $('[data-toggle="popover"]').popover({ trigger: "hover"});
+  });
+  </script>
+<% end %>
