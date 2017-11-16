@@ -3,7 +3,7 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = policy_scope(Business)
-    @featured = Business.last
+    @featured = Business.first
   end
 
   def show

@@ -4,14 +4,10 @@
       <div class="banner-content">
         <h1>Welcome to Tokinfo</h1>
         <p>Find places to buy new and upcoming crypto tokens</p>
-          <div class="form-inline">
-            <div class="form-inputs">
-              <div class="form-group">
-                <input class="form-control string email required" autofocus="autofocus" type="email" name="email" id="email">
-              </div>
-              <input type="submit" value="Search" class="tokinfo-btn">
-            </div>
-          </div>
+          <%= form_tag(tokens_path, method: :get) do %>
+            <%= text_field_tag :query %>
+            <%= submit_tag 'Search' %>
+          <% end %>
         </div>
     </div>
     <div class="banner-right1">

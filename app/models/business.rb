@@ -1,4 +1,6 @@
 class Business < ApplicationRecord
+  include PgSearch
+  multisearchable against: [:name, :description, :address, :url]
   belongs_to :user
   has_many :tokens
 
@@ -10,4 +12,5 @@ class Business < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
 end
