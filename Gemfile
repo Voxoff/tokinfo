@@ -12,11 +12,12 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.4'
 gem 'redis'
-
+gem 'jquery-rails'
+gem 'twitter-bootstrap-rails'
 # seeding
 gem 'faker'
 
-#images
+# images
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
