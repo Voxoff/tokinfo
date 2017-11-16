@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20171116111715) do
 
   # These are extensions that must be enabled in order to support this database
@@ -48,6 +49,14 @@ ActiveRecord::Schema.define(version: 20171116111715) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
+  create_table "prices", force: :cascade do |t|
+    t.float "value_gbp"
+    t.bigint "token_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token_id"], name: "index_prices_on_token_id"
+  end
+
   create_table "tokens", force: :cascade do |t|
     t.string "name"
     t.bigint "business_id"
@@ -56,7 +65,6 @@ ActiveRecord::Schema.define(version: 20171116111715) do
     t.bigint "user_id"
     t.string "photo"
     t.text "description"
-    t.float "price_gbp"
     t.float "market_cap_gbp"
     t.float "one_day_volume_gbp"
     t.float "percentage_change_1h"
@@ -92,6 +100,7 @@ ActiveRecord::Schema.define(version: 20171116111715) do
   add_foreign_key "businesses", "users"
   add_foreign_key "followings", "tokens"
   add_foreign_key "followings", "users"
+  add_foreign_key "prices", "tokens"
   add_foreign_key "tokens", "businesses"
   add_foreign_key "tokens", "users"
 end
