@@ -1,6 +1,16 @@
 <div class="follow-btn" id="insert" data-toggle="popover" data-content="Follow" data-placement="top">
   <%= link_to token_followings_path(token), method: :post, class: "btn btn-default" do %>
-  <i class="fa fa-star-o" aria-hidden="true"></i>
+    <!-- Here goes the logic for the star -->
+    <% if !current_user.nil?  %>
+      <% if Following.where(user_id: current_user.id, token_id: token.id).empty?%>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% elsif %>
+        <i class="fa fa-star" style="color:#6F95F8" aria-hidden="true"></i>
+      <% end %>
+      <%# binding.pry %>
+    <% elsif %>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+    <% end %>
   <% end %>
 </div>
 
