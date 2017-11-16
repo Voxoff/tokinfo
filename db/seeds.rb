@@ -89,17 +89,17 @@ data_array.each do |coin|
 end
 
 print "Seeding..."
-data["Data"].each_with_index do |(key,value), i|
-  # just to keep the seed small
-  if i < 10
-    # need a user and business for each token
-    user = User.create!(first_name: user_first_names[i], last_name: second[i],  email: user_first_names[i] + "@hotmail.com", password: "123123", remote_photo_url: user_photos[i])
-    business = Business.create!(user_id: rand(1..5), name: businesses[i], address: Faker::Address.city, url: "https://www.#{tokens[i]}.com", email: Faker::Internet.email, remote_photo_url: business_photo_placeholder[i], description: "Businesses that have compelling ethoses end up winning clients even when their prices are not the best in the market or their products or services might not be the most innovative available. Their ethoses may capture the attention of their niches, and their clients develop an emotional attachment.")
-    Token.create!(name: tokens[i], business_id: business.id, user_id: business.user.id, remote_photo_url: token_photo_placeholder
-    Following.create!(user: user, token: admin_token)
-    Following.create!(user: user, token: tokens[0])
-    print "."
-  end
+i = 0
+while i < 5
+  # need a user and business for each token
+  user = User.create!(first_name: user_first_names[i], last_name: user_second_names[i],  email: user_first_names[i] + "@tokinfo.com", password: "123123", remote_photo_url: user_photos[i])
+  business = Business.create!(user_id: user.id, name: businesses[i], address: Faker::Address.city, url: Faker::Internet.url, email: Faker::Internet.email, remote_photo_url: business_photo_placeholder, description: "Businesses that have compelling ethoses end up winning clients even when their prices are not the best in the market or their products or services might not be the most innovative available. Their ethoses may capture the attention of their niches, and their clients develop an emotional attachment.")
+  token = Token.create!(name: tokens[i], business_id: business.id, user_id: user.id, remote_photo_url: token_photo_placeholder, market_cap_gbp: market_caps_gbp[i], one_day_volume_gbp: one_day_volumes_gbp[i], percentage_change_1h: percentage_changes_1h[i], percentage_change_24h: percentage_changes_24h[i], percentage_change_1w: percentage_changes_1w[i], total_supply: total_supplies[i], max_supply: max_supplies[i], description: description_placeholder)
+  Price.create!(value_gbp: prices_gbp[i], token_id: token.id)
+  Following.create!(user: user, token: admin_token)
+  Following.create!(user: user, token: token)
+  print "."
+  i += 1
 end
 
 
