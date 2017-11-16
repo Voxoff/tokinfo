@@ -60,6 +60,12 @@
 
 .follow-btn .btn {
   position: absolute;
-  bottom: 120px;
-  left: 170px;
+  bottom: 133px;
+  left: 180px;
+}
+
+.follow-btn .clicked{
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
 }

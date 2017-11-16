@@ -122,6 +122,7 @@
               <h3><%= token.name.upcase %> </h3>
               <p>Offered By: <%= token.business.name %> </p>
             </div>
+            <%= render "shared/followbtn", token: token %>
           </div>
         </div>
         <% end %>
