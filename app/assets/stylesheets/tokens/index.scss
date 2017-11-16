@@ -51,6 +51,7 @@ p {
   margin: 20px auto 0;
   position: relative;
   z-index: 1;
+  margin-bottom: 50px;
 
   @media screen and (min-width: 768px) {
     padding: 0;
@@ -100,9 +101,28 @@ p {
     margin-bottom: 0;
   }
 }
+.search-item__image_avatar {
+  order: 1;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  margin-right: 15px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 600px) {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0;
+  }
+}
 .search-item__options {
+  position: relative;
   order: 2;
   margin-left: auto;
+  text-align: right;
   @media screen and (min-width: 600px) {
     order: 10;
   }
@@ -213,5 +233,13 @@ input[type="date2"]{
 
 .black {
   color: black !important;
+}
+
+.red {
+  color: red !important;
+}
+
+.green {
+  color: green !important;
 }
 
