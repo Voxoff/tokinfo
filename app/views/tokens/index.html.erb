@@ -22,7 +22,11 @@
           </div>
           <div class="search-item__options">
             <p class="text--medium">Current Price: <%= result.searchable.name %></p>
-            <button class="button2 button--outline button--small">Follow</>
+            <div class="follow-btn">
+              <%= link_to token_followings_path(token), method: :post, class: "btn btn-default" do %>
+              <i class="fa fa-money" aria-hidden="true"></i>
+              <% end %>
+            </div>
           </div>
         </li>
       <% elsif (result.searchable_type == "Business") %>
