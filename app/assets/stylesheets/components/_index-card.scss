@@ -53,3 +53,13 @@
   opacity: 1;
   text-shadow: none;
 }
+
+.follow-btn {
+  position: relative;
+}
+
+.follow-btn .btn {
+  position: absolute;
+  bottom: 120px;
+  left: 170px;
+}

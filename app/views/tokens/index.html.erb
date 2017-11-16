@@ -1,5 +1,12 @@
 <div class="background-design">
   <div class="navbar-offset"></div>
+  <div class="container">
+    <% @results.each do |result| %>
+      <div class="card">
+        <p><%= result.searchable.name %></p>
+      </div>
+    <% end %>
+  </div>
   <div class="text-center">
     <h2>Featured</h2>
     <br>
