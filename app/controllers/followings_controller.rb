@@ -13,9 +13,9 @@ class FollowingsController < ApplicationController
     @following.user_id = current_user.id
     authorize @following
     if @following.save
-      redirect_to root
+      redirect_to root_path
     else
-      redirect_to root
+      redirect_to root_path
     end
   end
 
