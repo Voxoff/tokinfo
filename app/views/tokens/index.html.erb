@@ -64,7 +64,9 @@
                 <p class="text--small text--muted">Joined: <%= result.searchable.created_at %></p>
               </div>
               <div class="search-item__options">
-                <h6 class="text--small text--muted">Recently followed: <%= result.searchable.followings.last.token.name %></h6 >
+                <% unless result.searchable.followings.last.nil? %>
+                  <h6 class="text--small text--muted">Recently followed: <%= result.searchable.followings.last.token.name %></h6 >
+                <% end %>
                 <br>
                 <%= link_to user_path(result.searchable) do %>
                   <button class="tokinfo-btn">View</>
