@@ -1,12 +1,75 @@
 <div class="background-design">
   <div class="navbar-offset"></div>
-  <div class="container">
+
+
+
+
+
+<div class="search__container">
+  <ul class="card2">
     <% @results.each do |result| %>
-      <div class="card">
-        <p><%= result.searchable.name %></p>
-      </div>
+      <% if (result.searchable_type == "Token") %>
+        <li class="search-item">
+          <div class="search-item__image" style="background-image: url(<%= result.searchable.photo %>); background-size: cover;"></div>
+          <div class="search-item__content">
+            <%= link_to token_path(result.searchable) do %>
+              <p class="text--medium black">
+                <%= result.searchable.name %>
+              </p>
+            <% end %>
+            <p class="text--small text--muted"><%= result.searchable.description %></p>
+            <p class="text--small text--muted">First offered: <%= result.searchable.created_at %></p>
+          </div>
+          <div class="search-item__options">
+            <p class="text--medium">Current Price: <%= result.searchable.name %></p>
+            <button class="button2 button--outline button--small">Follow</>
+          </div>
+        </li>
+      <% elsif (result.searchable_type == "Business") %>
+        <li class="search-item">
+          <div class="search-item__image" style="background-image: url(<%= result.searchable.photo %>); background-size: cover;"></div>
+          <div class="search-item__content">
+            <%= link_to token_path(result.searchable) do %>
+              <p class="text--medium">
+                <%= result.searchable.name %>
+              </p>
+            <% end %>
+            <p class="text--small text--muted"><%= result.searchable.email %></p>
+            <p class="text--small text--muted">Address: <%= result.searchable.address %></p>
+          </div>
+          <div class="search-item__options">
+            <button class="button button--outline button--small">View Tokens</>
+          </div>
+        </li>
+      <% elsif (result.searchable_type == "User") %>
+        <li class="search-item">
+          <div class="search-item__image" style="background-image: url(<%= result.searchable.photo %>); background-size: cover;"></div>
+          <div class="search-item__content">
+            <%= link_to token_path(result.searchable) do %>
+              <p class="text--medium">
+                <%= result.searchable.first_name %> <%= result.searchable.last_name %>
+              </p>
+            <% end %>
+            <p class="text--small text--muted"><%= result.searchable.email %></p>
+            <p class="text--small text--muted">First offered: <%= result.searchable.created_at %></p>
+          </div>
+          <div class="search-item__options">
+            <button class="button2 button--outline button--small">View</>
+          </div>
+        </li>
+      <% end %>
     <% end %>
-  </div>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
   <div class="text-center">
     <h2>Featured</h2>
     <br>
@@ -59,6 +122,7 @@
               <h3><%= token.name.upcase %> </h3>
               <p>Offered By: <%= token.business.name %> </p>
             </div>
+            <%= render "shared/followbtn", token: token %>
           </div>
         </div>
         <% end %>

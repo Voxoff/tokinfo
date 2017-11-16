@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   resources :businesses do
   resources :tokens, only: [:new, :create]
   end
-  resources :tokens, only: [:index, :show, :destroy, :edit, :update]
+  resources :tokens, only: [:index, :show, :destroy, :edit, :update] do
+    resources :followings, only: [:create]
+  end
   resources :followings, only: [:show]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

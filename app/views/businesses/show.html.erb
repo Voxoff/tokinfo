@@ -29,8 +29,6 @@
   </div>
 <% end %>
 
-
-
 <div class="row">
   <div class="container col-sx-6">
     <h4 class="offerings">About:</h4>
@@ -59,6 +57,7 @@
                 <h3><%= token.name.upcase %> </h3>
                 <p>Offered By: <%= token.business.name %> </p>
               </div>
+              <%= render "shared/followbtn", token: token %>
             </div>
           </div>
         <% end %>

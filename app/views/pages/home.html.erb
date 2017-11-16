@@ -4,11 +4,12 @@
       <div class="banner-content">
         <h1>Welcome to Tokinfo</h1>
         <p>Find places to buy new and upcoming crypto tokens</p>
-          <%= form_tag(tokens_path, method: :get) do %>
-            <%= text_field_tag :query %>
-            <%= submit_tag 'Search' %>
-          <% end %>
+        <%= form_tag(tokens_path, method: :get) do %>
+          <%= text_field_tag :query,'', type: "text", class: 'search-form' %>
+          <%= submit_tag 'Search', :class => "tokinfo-btn" %>
+        <% end %>
         </div>
+      </div>
     </div>
     <div class="banner-right1">
       <div class="banner-img">
@@ -57,6 +58,7 @@
                 <h3><%= token.name.upcase %> </h3>
                 <p>Offered By: <%= token.business.name %> </p>
               </div>
+              <%= render "shared/followbtn", token: token %>
             </div>
           </div>
           <% end %>
