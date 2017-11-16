@@ -59,10 +59,6 @@ token_photo_placeholder = "https://bitcoin.org/img/icons/opengraph.png"
 description_placeholder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
 # admin account for easy access
-  print "Creating Admin..."
-  admin = User.create!(first_name: "Alex", last_name: "Benoit", email: "alex@benoit.com", password: "123123", remote_photo_url: "https://avatars3.githubusercontent.com/u/16181471?v=4")
-  admin_business = Business.create!(user_id: admin.id, name: "Le Wagon", address: "admin street", url: "admin.com", email: "admin@admin.com", remote_photo_url: "http://lewagon.github.io/ui-components/images/lewagon.png")
-  admin_token = Token.create!(name: "WagonCoin", business_id: admin_business.id, user_id: admin.id, remote_photo_url: "http://lewagon.github.io/ui-components/images/lewagon.png")
 
 print "Gathering Data..."
 data_array.each do |coin|
@@ -104,6 +100,10 @@ end
 
 
 
+  print "Creating Admin..."
+  admin = User.create!(first_name: "Alex", last_name: "Benoit", email: "alex@benoit.com", password: "123123", remote_photo_url: "https://avatars3.githubusercontent.com/u/16181471?v=4")
+  admin_business = Business.create!(user_id: admin.id, name: "Le Wagon", address: "admin street", url: "admin.com", email: "admin@admin.com", remote_photo_url: "http://lewagon.github.io/ui-components/images/lewagon.png")
+  admin_token = Token.create!(name: "WagonCoin", business_id: admin_business.id, user_id: admin.id, remote_photo_url: "http://lewagon.github.io/ui-components/images/lewagon.png")
 
 
 
