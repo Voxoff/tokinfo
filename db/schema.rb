@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115140405) do
+ActiveRecord::Schema.define(version: 20171116111715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 20171115140405) do
     t.bigint "user_id"
     t.string "photo"
     t.text "description"
+    t.float "price_gbp"
+    t.float "market_cap_gbp"
+    t.float "one_day_volume_gbp"
+    t.float "percentage_change_1h"
+    t.float "percentage_change_24h"
+    t.float "percentage_change_1w"
+    t.float "total_supply"
+    t.float "max_supply"
     t.index ["business_id"], name: "index_tokens_on_business_id"
     t.index ["user_id"], name: "index_tokens_on_user_id"
   end
