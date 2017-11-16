@@ -95,7 +95,7 @@ data["Data"].each_with_index do |(key,value), i|
     # need a user and business for each token
     user = User.create!(first_name: user_first_names[i], last_name: second[i],  email: user_first_names[i] + "@hotmail.com", password: "123123", remote_photo_url: user_photos[i])
     business = Business.create!(user_id: rand(1..5), name: businesses[i], address: Faker::Address.city, url: "https://www.#{tokens[i]}.com", email: Faker::Internet.email, remote_photo_url: business_photo_placeholder[i], description: "Businesses that have compelling ethoses end up winning clients even when their prices are not the best in the market or their products or services might not be the most innovative available. Their ethoses may capture the attention of their niches, and their clients develop an emotional attachment.")
-    Token.create!(name: tokens[i], business_id: business.id, user_id: business.user.id, remote_photo_url: token_photo_placeholder
+    Token.create!(name: tokens[i], business_id: business.id, user_id: business.user.id, remote_photo_url: token_photo_placeholder)
     Following.create!(user: user, token: admin_token)
     Following.create!(user: user, token: tokens[0])
     print "."
