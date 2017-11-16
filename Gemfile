@@ -18,7 +18,12 @@ gem 'twitter-bootstrap-rails'
 # seeding
 gem 'faker'
 
-# images
+# Asynchronous Background Jobs
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+gem 'faraday'
+
+#images
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
