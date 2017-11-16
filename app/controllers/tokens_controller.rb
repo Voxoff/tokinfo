@@ -3,7 +3,7 @@ class TokensController < ApplicationController
 
   def index
     @tokens = policy_scope(Token)
-    @results = PgSearch.multisearch(params[:query])
+    @results = PgSearch.multisearch("%#{params[:query]}%")
   end
 
   def show
