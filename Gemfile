@@ -16,6 +16,9 @@ gem 'redis'
 # seeding
 gem 'faker'
 
+# Asynchronous Background Jobs
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 gem 'faraday'
 
 #images
