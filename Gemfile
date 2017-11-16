@@ -16,6 +16,8 @@ gem 'redis'
 # seeding
 gem 'faker'
 
+gem 'faraday'
+
 #images
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
