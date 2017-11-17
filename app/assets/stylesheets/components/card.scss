@@ -14,12 +14,22 @@
   box-shadow: 0 4px 2px 0 rgba(0,0,0,0.14);
 }
 
-.token-card .token-card-img {
+.token-card-no-hover {
+  display: flex;
+  align-items: center;
+  margin: 10px 5px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14);
+  border-radius: 2px;
+  background-color: white;
+  min-height: 220px;
+}
+
+.token-card-img {
   max-width: 40%;
   padding: 0 10px;
 }
 
-.token-card .token-card-stacked {
+.token-card-stacked {
   flex: 1;
   display: flex;
   -webkit-box-orient: vertical;
@@ -27,19 +37,19 @@
   flex-direction: column;
 }
 
-.token-card .token-card-content {
+.token-card-content {
   flex-grow: 1;
   padding: 16px 24px;
 }
 
-.token-card .token-card-action {
+.token-card-action {
   border-top: 1px solid rgba(160,160,160,0.2);
   padding: 16px 24px;
   display: flex;
   align-items: center;
 }
 
-.token-card .token-card-action a {
+.token-card-action a {
   margin: none;
   border: 0;
 }
@@ -53,7 +63,7 @@
   color: #63ADF2;
 }
 
-.token-card .token-card-action p {
+.token-card-action p {
   margin: 0;
 }
 
