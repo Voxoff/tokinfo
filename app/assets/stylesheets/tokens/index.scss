@@ -1,20 +1,20 @@
 // Stuff that will already be in ext - probably.
 
-html {
-  margin-bottom: 60px;
-  background-color: #F5F5F5;
-  font-family: -apple-system, BlinkMacSystemFont,
-    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  * {
-    box-sizing: border-box;
-  }
-}
-p {
-  margin: 5px 0;
-  font-weight: 300;
-}
+// html {
+//   margin-bottom: 60px;
+//   background-color: #F5F5F5;
+//   font-family: -apple-system, BlinkMacSystemFont,
+//     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+//     "Fira Sans", "Droid Sans", "Helvetica Neue",
+//     sans-serif;
+//   * {
+//     box-sizing: border-box;
+//   }
+// }
+// p {
+//   margin: 5px 0;
+//   font-weight: 300;
+// }
 
 // Background strip at top
 
@@ -32,16 +32,16 @@ p {
 
 // Generic cards
 
-.card2 {
-  // height: auto;
-  background: #FFFFFF;
-  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.20);
-  border-radius: 8px;
-  padding: 20px;
-  @media screen and (min-width: 768px) {
-    padding: 30px;
-  }
-}
+// .card2 {
+//   // height: auto;
+//   background: #FFFFFF;
+//   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.20);
+//   border-radius: 8px;
+//   padding: 20px;
+//   @media screen and (min-width: 768px) {
+//     padding: 30px;
+//   }
+// }
 
 // Search results
 
@@ -144,32 +144,32 @@ p {
 
 // Buttons - some of the reset-y type styles may be in ext already - like removing borders etc
 
-.button2 {
-  display: inline-block;
-  text-transform: uppercase;
-  border: 0;
-  border-radius: 8px;
-  background-color: red;
-  font-size: 14px;
-  padding: 22px;
-}
-.button--small {
-  font-size: 10px;
-  padding: 10px;
-}
-.button--block {
-  display: block;
-  width: 100%;
-}
-.button--primary {
-  background-color: #72CB36;
-  color: #FFFFFF;
-}
-.button--outline {
-  border: 1px solid #D3DCE6;
-  color: #A1A1A1;
-  background-color: transparent;
-}
+// .button2 {
+//   display: inline-block;
+//   text-transform: uppercase;
+//   border: 0;
+//   border-radius: 8px;
+//   background-color: red;
+//   font-size: 14px;
+//   padding: 22px;
+// }
+// .button--small {
+//   font-size: 10px;
+//   padding: 10px;
+// }
+// .button--block {
+//   display: block;
+//   width: 100%;
+// }
+// .button--primary {
+//   background-color: #72CB36;
+//   color: #FFFFFF;
+// }
+// .button--outline {
+//   border: 1px solid #D3DCE6;
+//   color: #A1A1A1;
+//   background-color: transparent;
+// }
 
 // Text modifiers
 

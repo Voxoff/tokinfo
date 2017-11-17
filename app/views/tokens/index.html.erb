@@ -21,7 +21,7 @@
               </div>
               <div class="search-item__options">
                 <p class="text--medium">Current Price: £<%= result.searchable.prices.last.value_gbp.round(2) %></p>
-                <% if (result.searchable.percentage_change_24h >= 1) %>
+                <% if (result.searchable.percentage_change_24h >= 0) %>
                   <p class="text--medium green">Last 24 hrs: +<%= result.searchable.percentage_change_24h.round(2) %>%</p>
                 <% else %>
                   <p class="text--medium red">Last 24 hrs: <%= result.searchable.percentage_change_24h.round(2) %>%</p>
@@ -85,29 +85,38 @@
     <br>
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-4">
-          <div class="card">
+          <div class="col-xs-12 col-sm-4">
             <%= link_to token_path(@tokens.last) do %>
-              <div class="featured-card-alert">
-                <p> Featured! </p>
+              <div class="token-card">
+                <div class="token-card-img">
+                  <%= cl_image_tag @tokens.last.photo, height: 100, crop: :fill %>
+                </div>
+                <div class="token-card-stacked">
+                  <div class="token-card-content">
+                    <h3><%= @tokens.last.name.upcase %> </h3>
+                    <p>Price: £<%= @tokens.last.prices.last.value_gbp.round(2) %></p>
+                    <% if @tokens.last.percentage_change_24h > 0 %>
+                      <p class="green">1 Day Change: +<%= @tokens.last.percentage_change_24h %>%</p>
+                    <% else %>
+                    <p class="red">1 Day Change: <%= @tokens.last.percentage_change_24h %>%</p>
+                    <% end %>
+                    <p>Offered By: <br> <%= @tokens.last.business.name %> </p>
+                  </div>
+                  <div class="token-card-action">
+                    <p>Follow Here: </p>
+                    <%= render "shared/followbtn", token: @tokens.last %>
+                  </div>
+                </div>
               </div>
-              <br>
-              <br>
-              <%= cl_image_tag @tokens.last.photo, height: 150, width: 200, crop: :fill %>
-              <div class="card-content">
-                <h3><%= @tokens.last.name.upcase %></h3>
-              </div>
-            <% end %>
-          </div>
-        </div>
+            </div>
+          <% end %>
         <div class="col-xs-12 col-sm-8">
-          <div class="card">
-            <div class="card-content">
+          <div class="token-card">
               <!--Div that will hold the pie chart-->
               <div id="chart_div"></div>
-            </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -122,20 +131,26 @@
   <div class="container">
     <div class="row">
       <% @tokens.each do |token| %>
-      <%= link_to token_path(token) do %>
-        <div class="col-xs-12 col-sm-3">
-          <div class="card">
-            <br>
-            <%= cl_image_tag token.photo, height: 150, width: 200, crop: :fill %>
-            <div class="card-content">
-              <h3><%= token.name.upcase %> </h3>
-              <p>Offered By: <%= token.business.name %> </p>
+        <%= link_to token_path(token) do %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="token-card">
+              <div class="token-card-img">
+                <%= cl_image_tag token.photo, height: 100, crop: :fill %>
+              </div>
+              <div class="token-card-stacked">
+                <div class="token-card-content">
+                  <h3><%= token.name.upcase %> </h3>
+                  <p>Offered By: <%= token.business.name %> </p>
+                </div>
+                <div class="token-card-action">
+                  <p>Follow Here: </p>
+                  <%= render "shared/followbtn", token: token %>
+                </div>
+              </div>
             </div>
-            <%= render "shared/followbtn", token: token %>
           </div>
-        </div>
+          <% end %>
         <% end %>
-      <% end %>
     </div>
   </div>
 </div>
@@ -170,7 +185,7 @@ function drawBasic() {
       ]);
 
       var options = {'title':'Price of <%= raw @tokens.last.name.capitalize %>',
-                       'width':700,
+                       'width':680,
                        'height':300,
                        hAxis: {
                           title: 'Date'

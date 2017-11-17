@@ -20,15 +20,15 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
 }
 
-.card h3 {
-  margin-bottom: 0px;
-}
+// .card h3 {
+//   margin-bottom: 0px;
+// }
 
-.card p {
-  color: $gray;
-  opacity: 0.4;
-  font-size: 14px;
-}
+// .card p {
+//   color: $gray;
+//   opacity: 0.4;
+//   font-size: 14px;
+// }
 
 .card-content {
   position: absolute;
@@ -54,26 +54,26 @@
   text-shadow: none;
 }
 
-.follow-btn {
-  position: relative;
-}
+// .follow-btn {
+//   position: relative;
+// }
 
-.follow-btn .btn {
-  position: absolute;
-  bottom: 133px;
-  left: 180px;
-}
-
-.follow-btn .clicked{
-    color: #333;
-    background-color: #e6e6e6;
-    border-color: #adadad;
-}
-
-.popover {
-//   position: relative !important;
-//   bottom: 133px !important;
+// .follow-btn .btn {
+//   position: absolute;
+//   bottom: 133px;
 //   left: 180px;
-  margin: -180px 0 0 100px !important;
-  // margin-left: 100px;
-}
+// }
+
+// .follow-btn .clicked{
+//     color: #333;
+//     background-color: #e6e6e6;
+//     border-color: #adadad;
+// }
+
+// .popover {
+// //   position: relative !important;
+// //   bottom: 133px !important;
+// //   left: 180px;
+//   margin: -180px 0 0 100px !important;
+//   // margin-left: 100px;
+// }
