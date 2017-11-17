@@ -5,7 +5,7 @@ require 'json'
 # User.destroy_all
 
 base = "https://api.coinmarketcap.com/v1/ticker/"
-url = "https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=10"
+url = "https://api.coinmarketcap.com/v1/ticker/?convert=GBP&limit=60"
 data_array = JSON.parse(open(url).read)
 
 user_first_names = ["Alex", "Jamie", "Leonard", "Guy", "Edward"]
@@ -30,7 +30,7 @@ description_placeholder = "Lorem ipsum dolor sit amet, consectetur adipiscing el
   print "Creating Admin..."
   admin = User.create!(first_name: "Alex", last_name: "Benoit", email: "alex@benoit.com", password: "123123", remote_photo_url: "https://avatars3.githubusercontent.com/u/16181471?v=4")
   admin_business = Business.create!(user_id: admin.id, name: "Le Wagon", address: "admin street", url: "admin.com", email: "admin@admin.com", remote_photo_url: "http://lewagon.github.io/ui-components/images/lewagon.png")
-  admin_token = Token.create!(name: "WagonCoin", business_id: admin_business.id, user_id: admin.id, remote_photo_url: "http://lewagon.github.io/ui-components/images/lewagon.png")
+  admin_token = Token.create!(name: "WagonCoin", business_id: admin_business.id, user_id: admin.id, remote_photo_url: "http://lewagon.github.io/ui-components/images/lewagon.png", market_cap_gbp: 1000000000000, one_day_volume_gbp: 80000000, percentage_change_1h: 23.36, percentage_change_24h: 157.64, percentage_change_1w: 1000.48, total_supply: 999999999, max_supply: 1000000000, description: "The best coin eva eva eva eva eva. Like really, it does so much. Its like so sick. OMG. FANGIRL ALEX BENOIT.")
   Price.create!(value_gbp: 1000000, token_id: admin_token.id)
 
 print "Gathering Data..."
@@ -67,6 +67,15 @@ while i < 5
   Price.create!(value_gbp: prices_gbp[i], token_id: token.id)
   Following.create!(user: user, token: admin_token)
   Following.create!(user: user, token: token)
+  print "."
+  i += 1
+end
+
+while i < 50
+  user_id = rand(1..5)
+  business = Business.create!(user_id: user_id, name: businesses[i], address: Faker::Address.city, url: Faker::Internet.url, email: Faker::Internet.email, remote_photo_url: business_photo_placeholder, description: "Businesses that have compelling ethoses end up winning clients even when their prices are not the best in the market or their products or services might not be the most innovative available. Their ethoses may capture the attention of their niches, and their clients develop an emotional attachment.")
+  token = Token.create!(name: tokens[i], business_id: business.id, user_id: user_id, remote_photo_url: token_photo_placeholder, market_cap_gbp: market_caps_gbp[i], one_day_volume_gbp: one_day_volumes_gbp[i], percentage_change_1h: percentage_changes_1h[i], percentage_change_24h: percentage_changes_24h[i], percentage_change_1w: percentage_changes_1w[i], total_supply: total_supplies[i], max_supply: max_supplies[i], description: description_placeholder)
+  Price.create!(value_gbp: prices_gbp[i], token_id: token.id)
   print "."
   i += 1
 end
