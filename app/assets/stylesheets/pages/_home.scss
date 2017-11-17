@@ -37,7 +37,38 @@ h2 {
 }
 
 .search-form {
-  height: 30px !important;
-  color: black !important;
-  opacity: 0.8 !important;
+  height: 38px !important;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  border-radius: 0;
+  color: white;
+}
+
+.search-form::placeholder {
+  color: white;
+}
+
+.form-border {
+  border: 1px solid white;
+  width: 313px;
+  height: 45px;
+  border-radius: 4px
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
 }
