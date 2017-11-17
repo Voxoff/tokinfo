@@ -1,13 +1,14 @@
 <div class="background-design">
   <div class="navbar-offset"></div>
-  <div class="show_container">
-    <div class="show_sub_container">
-      <h1 class="white"><%= @token.name %></h1>
-      <a href="<%= @token.business.url %> "><h3 class="shadow-hover"><%= @token.business.name.capitalize %></h3></a>
+  <div class="container">
+    <div class="show_container">
+      <div class="show_sub_container">
+        <h1 class="white"><%= @token.name %></h1>
+        <a href="<%= @token.business.url %> "><h3 class="white shadow-hover"><%= @token.business.name.capitalize %></h3></a>
+      </div>
+      <%= cl_image_tag @token.photo, height: 200, width: 200, crop: :fit%>
     </div>
-    <%= cl_image_tag @token.photo, height: 200, width: 230, crop: :fit, id: "bus_img"%>
   </div>
-  <hr class="line">
 </div>
 
 <% if @token.business.user == current_user %>
@@ -27,25 +28,111 @@
   </div>
 <% end %>
 
-<div class="container col-sx-6">
-  <h4 class="offerings">Followed by:</h4>
-
-  <div class="row">
-      <% @users.each do |user| %>
-        <% user.tokens.each do |token| %>
-          <% if token.id == @token.id %>
-            <%= link_to user_path(user) do %>
-              <div class="col-xs-12 col-sm-3">
-                <div class="card shortest">
-                  <br>
-                  <%= cl_image_tag user.photo, height: 150, width: 200, crop: :fill %>
-                  <h3><%= user.first_name %><%= user.last_name %> </h3>
-                </div>
-              </div>
+<div class="transparent-wrapper-section">
+  <div class="container">
+    <h4 class="offerings">Current Situation:</h4>
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <div class="card-area text-center">
+          <br><br><br>
+          <p>Price</p>
+          <h2> £<%= @token.prices.last.value_gbp.round(2) %> </h2>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="card-area text-center">
+            <br>
+          <div class="inline-content">
+            <p>Hourly Change:</p>
+            <% if @token.percentage_change_1h > 0 %>
+              <h3 class="green">+<%= @token.percentage_change_1h %>%</h3>
+            <% else %>
+              <h3 class="red"><%= @token.percentage_change_1h %>%</h3>
             <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
+          </div>
+            <br>
+            <br>
+          <div class="inline-content">
+            <p>Daily Change:</p>
+            <% if @token.percentage_change_24h > 0 %>
+              <h3 class="green">+<%= @token.percentage_change_24h %>%</h3>
+            <% else %>
+              <h3 class="red"><%= @token.percentage_change_24h %>%</h3>
+            <% end %>
+          </div>
+            <br>
+            <br>
+          <div class="inline-content">
+            <p>Weekly Change:</p>
+            <% if @token.percentage_change_1w > 0 %>
+              <h3 class="green">+<%= @token.percentage_change_1w %>%</h3>
+            <% else %>
+              <h3 class="red"><%= @token.percentage_change_1w %>%</h3>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="card-area">
+          <br><br><br>
+          <div class="inline-content">
+            <p>Current Supply:</p>
+            <h3><%= @token.total_supply.round %> Coins</h3>
+          </div>
+          <br>
+          <div class="inline-content">
+            <p>Max Supply:</p>
+            <% if @token.max_supply == 0 %>
+              <h3> No Maximum </h3>
+            <% else %>
+              <h3><%= @token.max_supply.round %> Coins</h3>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div class="transparent-wrapper-section">
+  <div class="container">
+    <h4 class="offerings">Current Situation:</h4>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="card-area">
+          <div class="inline-content">
+            <div id="chart_div"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="transparent-wrapper-section">
+  <div class="container">
+    <h4 class="offerings">Followed by:</h4>
+    <br>
+    <div class="row">
+        <% @users.each do |user| %>
+          <% user.tokens.each do |token| %>
+            <% if token.id == @token.id %>
+              <%= link_to user_path(user) do %>
+                <div class="col-xs-4 col-sm-2">
+                  <div class="text-center">
+                    <%= cl_image_tag user.photo, height: 150, width: 150, crop: :fill, class: "img-circle" %>
+                    <p><%= user.first_name %> <%= user.last_name %> </p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<% content_for(:in_head_js) do %>
+<!--Load the AJAX API-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<% end %>

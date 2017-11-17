@@ -48,7 +48,9 @@
 .offerings {
   color: gray;
 }
-
+.pad {
+  padding: 0px 10px;
+}
 .about-card {
   margin-bottom: 10px;
   height: auto;
@@ -59,7 +61,7 @@
   padding-left: 33px;
   padding-right: 33px;
   padding-bottom: 33px;
-  padding-top: 33px;
+  padding-top: 15px;
   border-radius: 7px;
   border: none;
   position: relative;
@@ -95,11 +97,95 @@
   height: 280px !important;
 }
 
+.widen-darken {
+  border: 1px solid rgba(99, 173, 242, 0.3);
+}
+.business-token-card {
+  display: flex;
+  align-items: center;
+  margin: 10px 5px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14);
+  border-radius: 2px;
+  background-color: white;
+  min-height: 220px;
+  transition: 0.3s;
+  width: 490px;
+}
+
+.business-token-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 2px 0 rgba(0,0,0,0.14);
+}
+
+.business-token-card .business-token-card-img {
+  max-width: 40%;
+  padding: 0 10px;
+}
+
+.business-token-card .business-token-card-stacked {
+  flex: 1;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+
+.business-token-card .business-token-card-content {
+  flex-grow: 1;
+  padding: 16px 24px;
+}
+
+.business-token-card .business-token-card-action {
+  border-top: 1px solid rgba(160,160,160,0.2);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.business-token-card .business-token-card-action a {
+  margin: none;
+  border: 0;
+}
+
+.business-token-card a {
+  color: rgba(0,0,0,0.5);
+  transition: all 0.5s;
+}
+
+.business-token-card a:hover {
+  color: #63ADF2;
+}
+
+.business-token-card .business-token-card-action p {
+  margin: 0;
+}
 
 
-// .show_image {
+.card-area {
+  align-items: center;
+  margin: 10px 5px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14);
+  border-radius: 2px;
+  background-color: white;
+  min-height: 220px;
+}
 
-// } img {
-//   border-radius: 5px;
-//   box-shadow: 1px 1px 1px;
-// }
+.inline-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.inline-content p {
+  margin: 0;
+}
+
+.inline-content h3 {
+  margin: 0;
+}
+
+.business-token-card-price {
+  position: absolute;
+  right: 10px;
+}
+

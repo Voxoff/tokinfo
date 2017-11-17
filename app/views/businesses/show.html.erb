@@ -4,76 +4,61 @@
   <div class="show_container">
     <div class="show_sub_container">
       <a href="<%= @business.url %> "><h1 class="shadow-hover"><%= @business.name.capitalize %></h1></a>
-      <h3><%= @business.email %></h3>
+      <h3 class="white"><%= @business.email %></h3>
     </div>
     <% url = @business.photo? ? @business.photo : "sample" %>
-    <%= cl_image_tag url, height: 200, width: 230, crop: :fit, id: "bus_img"%>
+    <%= cl_image_tag url, height: 200, width: 230, crop: :fit%>
   </div>
   <hr class="line">
 </div>
-
-<% if @business.user == current_user %>
-  <div class="front-nav-button-location">
-    <div class="front-nav-button">
-      <%= link_to business_path(@business), method: :delete, class: "btn btn-danger btn-circle" do %>
-        <i class="fa fa-trash" aria-hidden="true"></i>
-      <% end %>
-    </div>
-  </div>
-  <div class="front-nav-button-location-2">
-    <div class="front-nav-button">
-      <%= link_to edit_business_path(@business), class: "btn btn-info btn-circle" do %>
-        <i class="fa fa-pencil" aria-hidden="true"></i>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
-<div class="row">
-  <div class="container col-sx-6">
-    <h4 class="offerings">About:</h4>
+<div class="row pad">
+  <div class="col-xs-12 col-sm-6">
     <div class="about-card">
+      <h4 class="offerings">Founder:</h4><p><%= @business.user.first_name %> <%= @business.user.last_name %></p>
+      <h4 class="offerings">Company Ethos:</h4>
       <p><%= @business.description %></p>
     </div>
+    <div class="map-cont">
+      <div id="map" style="width: 100%; height: 500px; border-radius: 10px;"></div>
+    </div>
   </div>
 
-  <div class="container col-sx-6">
-    <h4 class="offerings">Offerings:</h4>
-    <div class="row">
-      <div class="offerings-area">
-        <div class="btn-position-right">
-          <% if @business.user == current_user %>
-            <%= link_to "+", new_business_token_path(@business), class: "btn btn-primary btn-circle" %>
-          <% end %>
+  <div class="col-xs-12 col-sm-6">
+    <div class="about-card">
+      <h4 class="offerings">Tokens:</h4>
+      <div class="container">
+        <div class="row">
+          <% @business.tokens.each do |token| %>
+            <%= link_to token_path(token) do %>
+              <div class="col-xs-12 col-sm-4">
+                <div class="business-token-card widen-darken">
+                  <div class="business-token-card-img">
+                    <%= cl_image_tag token.photo, height: 100, crop: :fill %>
+                  </div>
+                  <div class="business-token-card-stacked">
+                    <div class="business-token-card-content">
+                      <h3><%= token.name.upcase %> - £ <%= token.prices.last.value_gbp.round(0) %></h3>
+                      <p>Offered By: <%= token.business.name %> </p>
+                      <% if (token.percentage_change_24h <= 0) %>
+                        <p class="red">Last 24hr: <%= token.percentage_change_24h %>%</p>
+                      <% else %>
+                        <p class="green">Last 24hr: +<%= token.percentage_change_24h %>%</p>
+                      <% end %>
+                    </div>
+                    <div class="business-token-card-action">
+                      <p>Follow Here: </p>
+                      <%= render "shared/followbtn", token: token %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
-      <% @tokens.each do |token| %>
-        <%= link_to token_path(token) do %>
-          <div class="col-xs-12 col-sm-3">
-            <div class="card">
-              <br>
-              <%= cl_image_tag token.photo, height: 150, width: 200, crop: :fill %>
-              <div class="card-content">
-                <h3><%= token.name.upcase %> </h3>
-                <p>Offered By: <%= token.business.name %> </p>
-              </div>
-              <%= render "shared/followbtn", token: token %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
     </div>
   </div>
-
-  <div class="container">
-  <h4 class="offerings">Headquarters:</h4>
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <div id="map" style="width: 100%; height: 500px; border-radius: 10px;"></div>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <% content_for(:after_js) do %>
@@ -94,5 +79,29 @@
         handler.getMap().setZoom(16);
       });
   <% end %>
+<% end %>
+<div class="front-nav-button-location">
+  <div class="front-nav-button">
+    <% if @business.user == current_user %>
+      <%= link_to "+", new_business_token_path(@business), class: "btn btn-primary btn-circle" %>
+    <% end %>
+  </div>
+</div>
+
+<% if @business.user == current_user %>
+  <div class="front-nav-button-location-3">
+    <div class="front-nav-button">
+      <%= link_to business_path(@business), method: :delete, class: "btn btn-danger btn-circle" do %>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="front-nav-button-location-2">
+    <div class="front-nav-button">
+      <%= link_to edit_business_path(@business), class: "btn btn-info btn-circle" do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 

@@ -4,10 +4,12 @@
       <div class="banner-content">
         <h1>Welcome to Tokinfo</h1>
         <p>Find places to buy new and upcoming crypto tokens</p>
-        <%= form_tag(tokens_path, method: :get) do %>
-          <%= text_field_tag :query,'', type: "text", class: 'search-form' %>
-          <%= submit_tag 'Search', :class => "tokinfo-btn" %>
-        <% end %>
+        <!-- <div class="form-border"> -->
+          <%= form_tag(tokens_path, method: :get) do %>
+            <%= text_field_tag :query,'', type: "text", class: 'search-form', placeholder: "Bitcoin? Ethereum?" %>
+            <%= submit_tag 'Search', :class => "tokinfo-btn" %>
+          <% end %>
+        <!-- </div> -->
       </div>
     </div>
     <div class="banner-right1">
@@ -39,6 +41,7 @@
   <div class="container">
     <div class="text-center">
       <h2>Popular Right Now</h2>
+      <br><br>
     </div>
     <div class="row">
       <% @featured_tokens.each do |token| %>
@@ -71,7 +74,7 @@
     <div class="text-center">
       <h2>Leave us a message!</h2>
     </div>
-    <br />
+    <br><br>
     <div class="inner contact">
           <div class="contact-form">
               <form id="contact-us" method="post" action="#">
@@ -96,6 +99,6 @@
           </div>
       </div>
     </div>
-<div class="transparent-wrapper-section"></div>
+<div class="navbar-offset"></div>
 </div>
 
