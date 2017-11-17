@@ -14,7 +14,6 @@ gem 'rails', '5.1.4'
 gem 'redis'
 # for the popover, (yes it's worth it)
 gem 'jquery-rails'
-gem 'twitter-bootstrap-rails'
 # seeding
 gem 'faker'
 

@@ -14,6 +14,25 @@
   opacity: 0.8;
 }
 
+.followme:hover {
+  background-color: white !important;
+  .fa {
+    transform: scale(1.4);
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+}
+
+.followme:active {
+  background-color: white;
+  box-shadow: none;
+  transform: scale(1.4);
+  .fa{
+      color:#6F95F8;
+  }
+}
+
+
 // .follow-btn {
 //   position: relative;
 // }
