@@ -69,9 +69,10 @@
       <% @businesses.each do |business| %>
       <%= link_to business_path(business) do %>
         <div class="col-xs-12 col-sm-3">
-          <div class="card shorter">
-            <br>
-            <%= cl_image_tag business.photo, height: 200, width: 200, crop: :fill %>
+          <div class="business-card shorter">
+            <div class="business-img">
+              <%= cl_image_tag business.photo, height: 200, width: 262, crop: :fill %>
+            </div>
             <div class="card-content">
               <h3><%= business.name.upcase %> </h3>
             </div>
