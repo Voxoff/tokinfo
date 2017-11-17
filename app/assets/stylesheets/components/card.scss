@@ -56,3 +56,27 @@
 .token-card .token-card-action p {
   margin: 0;
 }
+
+
+.card-area {
+  align-items: center;
+  margin: 10px 5px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14);
+  border-radius: 2px;
+  background-color: white;
+  min-height: 220px;
+}
+
+.inline-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.inline-content p {
+  margin: 0;
+}
+
+.inline-content h3 {
+  margin: 0;
+}
