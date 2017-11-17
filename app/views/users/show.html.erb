@@ -10,37 +10,54 @@
   <hr class="line">
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-3">
-      <h4 class="offerings">Businesses:</h4>
-      <% @user.businesses.each do |business| %>
-        <%= link_to business_path(business) do %>
-          <div class="card">
-            <br>
-            <%= cl_image_tag business.photo, height: 150, width: 200, crop: :fill %>
-            <h3><%= business.name %></h3>
-            <p><%= business.email %></p>
+  <div class="col-xs-12 col-sm-6">
+    <h4 class="offerings">Businesses:</h4>
+    <% @user.businesses.each do |business| %>
+      <%= link_to business_path(business) do %>
+        <div class="token-card">
+          <div class="token-card-img">
+            <%= cl_image_tag business.photo, height: 100, crop: :fill %>
+          </div>
+          <div class="token-card-stacked">
+            <div class="token-card-content">
+              <h4 class="gray"><%= business.name.upcase %> </h4>
+              <p><%= business.email.capitalize %></p>
+              <% if !business.tokens.last.nil? %>
+                <p>Offering: <%= business.tokens.last.name %></p>
+              <% end %>
+              <div class="token-card-action no-pad-left">
+                <%= link_to "Visit Website", "business.url", class:"tokinfo-btn no-pad white" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <% @user.tokens.each_with_index do |token, i| %>
+        <% if i == 0 %>
+          <h4 class="offerings">Following:</h4>
+        <% end %>
+        <%= link_to token_path(token) do %>
+          <div class="token-card">
+            <div class="token-card-img">
+              <%= cl_image_tag token.photo, height: 100, crop: :fill %>
+            </div>
+            <div class="token-card-stacked">
+              <div class="token-card-content">
+                <h4><%= token.name.upcase %> </h4>
+                <p>Price: £<%= token.prices.last.value_gbp.round %> </p>
+                <p>Offered By: <%= token.business.name %> </p>
+              </div>
+              <div class="token-card-action">
+                <%= render "shared/followbtn", token: token %>
+              </div>
+            </div>
           </div>
         <% end %>
       <% end %>
     </div>
-
-      <% @user.tokens.each_with_index do |token, i| %>
-        <div class="col-xs-12 col-sm-3">
-          <% if i == 0 %>
-            <h4 class="offerings">Following:</h4>
-          <% elsif i == 1 || i == 2 %>
-            <h4 class="offerings" style="opacity: 0">Placeholder</h4>
-          <% end %>
-          <%= link_to token_path(token) do %>
-          <div class="card">
-            <br>
-            <%= cl_image_tag token.photo, height: 150, width: 200, crop: :fill %>
-            <%= render "shared/followbtn", token: token %>
-            <h3><%= token.name %></h3>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
   </div>
 </div>
+
