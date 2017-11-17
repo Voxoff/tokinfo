@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :tokens, only: [:new, :create]
   end
   resources :tokens, only: [:index, :show, :destroy, :edit, :update] do
-    resources :followings, only: [:create]
+    resources :followings, only: [:create, :destroy]
   end
   resources :followings, only: [:show]
 

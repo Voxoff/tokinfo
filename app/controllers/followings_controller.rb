@@ -23,7 +23,7 @@ class FollowingsController < ApplicationController
     @following = Following.find(params[:id])
     authorize @following
     @following.destroy
-    redirect_to root
+    redirect_to root_path
   end
 
   private
