@@ -7,34 +7,31 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-4">
-          <div class="card">
+          <div class="feature-card">
             <%= link_to business_path(@featured) do %>
               <div class="featured-card-alert">
                 <p> Featured! </p>
               </div>
-              <br>
-              <br>
-              <%= cl_image_tag @businesses.last.photo, height: 250, width: 300, crop: :fill %>
-              <div class="card-content">
+              <%= cl_image_tag @businesses.last.photo, height: 250, width: 359, crop: :fill %>
+              <div class="feature-card-content text-center">
                 <h3><%= @businesses.last.name.upcase %> </h3>
               </div>
             <% end %>
           </div>
         </div>
         <div class="col-xs-6 col-sm-4">
-          <div class="card">
-            <div class="card-content">
+          <div class="feature-card">
+            <div class="feature-card-content text-center">
+              <br>
               <h3>Business Ethos: </h3>
               <br>
               <p><%= @businesses.last.description %></p>
-              <br>
-              <br>
               <br>
             </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-4">
-          <div class="card">
+          <div class="feature-card">
             <br>
             <h3>Offering:</h3>
             <% if @featured.tokens.first.photo %>
@@ -42,7 +39,7 @@
             <% else %>
             <%= image_tag "http://via.placeholder.com/350x150" %>
             <% end %>
-            <div class="card-content">
+            <div class="feature-card-content text-center">
               <h3><%= @featured.tokens.first.name.upcase %> </h3>
             </div>
           </div>
@@ -71,10 +68,11 @@
         <div class="col-xs-12 col-sm-3">
           <div class="business-card shorter">
             <div class="business-img">
-              <%= cl_image_tag business.photo, height: 200, width: 262, crop: :fill %>
+              <%= cl_image_tag business.photo, height: 200, width: 261, crop: :fill %>
             </div>
             <div class="card-content">
               <h3><%= business.name.upcase %> </h3>
+              <p><%= business.tokens.first.name %> </p>
             </div>
           </div>
         </div>
