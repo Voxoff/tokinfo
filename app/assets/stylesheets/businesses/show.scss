@@ -74,6 +74,7 @@
 .btn-position-right {
   position: absolute;
   right: 10px;
+  z-index: 99;
 }
 
 .card-link {
@@ -82,7 +83,7 @@
   bottom: 0;
   right: 0;
   width: 100%;
-  z-index: 99;
+  z-index: 3;
   opacity: 0;
 }
 
