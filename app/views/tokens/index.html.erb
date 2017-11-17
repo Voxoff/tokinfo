@@ -142,7 +142,7 @@
                   <p>Price: £<%= token.prices.last.value_gbp.round %> </p>
                   <p>Offered By: <%= token.business.name %> </p>
                 </div>
-                <div class="token-card-action">
+                <div class="token-card-action" id="btn-id-<%= token.id %>">
                   <%= render "shared/followbtn", token: token %>
                 </div>
               </div>
