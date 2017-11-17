@@ -1,78 +1,57 @@
 <div class="background-design">
   <div class="navbar-offset"></div>
-  <div class="text-center">
-    <h2>Featured</h2>
-    <br>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-4">
-          <div class="feature-card">
-            <%= link_to business_path(@featured) do %>
-              <div class="featured-card-alert">
-                <p> Featured! </p>
-              </div>
-              <%= cl_image_tag @businesses.last.photo, height: 250, width: 359, crop: :fill %>
-              <div class="feature-card-content text-center">
-                <h3><%= @businesses.last.name.upcase %> </h3>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-4">
-          <div class="feature-card">
-            <div class="feature-card-content text-center">
-              <br>
-              <h3>Business Ethos: </h3>
-              <br>
-              <p><%= @businesses.last.description %></p>
-              <br>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-4">
-          <div class="feature-card">
-            <br>
-            <h3>Offering:</h3>
-            <% if @featured.tokens.first.photo %>
-            <%= cl_image_tag @featured.tokens.first.photo, height: 150, width: 200, crop: :fill %>
-            <% else %>
-            <%= image_tag "http://via.placeholder.com/350x150" %>
-            <% end %>
-            <div class="feature-card-content text-center">
-              <h3><%= @featured.tokens.first.name.upcase %> </h3>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="show_container">
+    <div class="show_sub_container">
+      <h1 class="white"><%= @user.first_name %><%= @user.last_name %></h1>
+      <h3 class="shadow-hover"><%= @user.email %></h3>
     </div>
+    <%= cl_image_tag @user.photo, height: 200, width: 230, crop: :fill, id: "user-img"%>
   </div>
+  <hr class="line">
 </div>
-
-<div class="front-nav-button-location">
-  <div class="front-nav-button">
-      <%= link_to "+", new_business_path, class: "btn btn-primary btn-circle" %>
-  </div>
-</div>
-
-<div class="transparent-wrapper-section">
-  <div class="text-center">
-    <h2>All Businesses</h2>
-    <br>
-    <br>
-  </div>
-  <div class="container">
-    <div class="row">
-      <% @businesses.each do |business| %>
-        <%= link_to business_path(business) do %>
-          <div class="col-xs-12 col-sm-3">
-            <div class="business-card shorter">
-              <div class="business-img">
-                <%= cl_image_tag business.photo, height: 200, width: 261, crop: :fill %>
+<div class="container">
+  <div class="col-xs-12 col-sm-6">
+    <h4 class="offerings">Businesses:</h4>
+    <% @user.businesses.each do |business| %>
+      <%= link_to business_path(business) do %>
+        <div class="token-card">
+          <div class="token-card-img">
+            <%= cl_image_tag business.photo, height: 100, crop: :fill %>
+          </div>
+          <div class="token-card-stacked">
+            <div class="token-card-content">
+              <h4 class="gray"><%= business.name.upcase %> </h4>
+              <p><%= business.email.capitalize %></p>
+              <% if !business.tokens.last.nil? %>
+                <p>Offering: <%= business.tokens.last.name %></p>
+              <% end %>
+              <div class="token-card-action no-pad-left">
+                <%= link_to "Visit Website", "business.url", class:"tokinfo-btn no-pad white" %>
               </div>
-              <div class="card-content">
-                <h3><%= business.name.upcase %> </h3>
-                <p><%= business.tokens.first.name %> </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <% @user.tokens.each_with_index do |token, i| %>
+        <% if i == 0 %>
+          <h4 class="offerings">Following:</h4>
+        <% end %>
+        <%= link_to token_path(token) do %>
+          <div class="token-card">
+            <div class="token-card-img">
+              <%= cl_image_tag token.photo, height: 100, crop: :fill %>
+            </div>
+            <div class="token-card-stacked">
+              <div class="token-card-content">
+                <h4><%= token.name.upcase %> </h4>
+                <p>Price: £<%= token.prices.last.value_gbp.round %> </p>
+                <p>Offered By: <%= token.business.name %> </p>
+              </div>
+              <div class="token-card-action">
+                <%= render "shared/followbtn", token: token %>
               </div>
             </div>
           </div>
@@ -81,4 +60,3 @@
     </div>
   </div>
 </div>
-
