@@ -45,8 +45,7 @@
                         <p class="green">Last 24hr: +<%= token.percentage_change_24h %>%</p>
                       <% end %>
                     </div>
-                    <div class="business-token-card-action">
-                      <p>Follow Here: </p>
+                    <div class="business-token-card-action" id="btn-id-<%= token.id %>">
                       <%= render "shared/followbtn", token: token %>
                     </div>
                   </div>

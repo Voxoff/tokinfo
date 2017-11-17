@@ -20,35 +20,22 @@
     transform: scale(1.4);
     margin-top: 0px;
     padding-top: 0px;
+
   }
 }
 
-.followme:active {
-  background-color: white;
-  box-shadow: none;
-  transform: scale(1.4);
-  .fa{
-      color:#6F95F8;
-  }
-}
-
-
-// .follow-btn {
-//   position: relative;
+// .followme:active {
+//   background-color: white;
+//   box-shadow: none;
+//   transform: scale(1.4);
+//   .fa{
+//       color:#6F95F8;
+//   }
 // }
 
-// .follow-btn .btn {
-//   position: absolute;
-//   bottom: 133px;
-//   left: 180px;
+// .followme:focus {
+//   background-color: white;
 // }
-
-// .follow-btn .clicked{
-//     color: #333;
-//     background-color: #e6e6e6;
-//     border-color: #adadad;
-// }
-
 .popover {
 //   position: relative !important;
 //   bottom: 133px !important;
