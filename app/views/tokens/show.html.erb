@@ -82,7 +82,11 @@
           <br>
           <div class="inline-content">
             <p>Max Supply:</p>
-            <h3><%= @token.max_supply.round %> Coins</h3>
+            <% if @token.max_supply == 0 %>
+              <h3> No Maximum </h3>
+            <% else %>
+              <h3><%= @token.max_supply.round %> Coins</h3>
+            <% end %>
           </div>
         </div>
       </div>
