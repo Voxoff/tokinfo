@@ -64,18 +64,18 @@
   <div class="container">
     <div class="row">
       <% @businesses.each do |business| %>
-      <%= link_to business_path(business) do %>
-        <div class="col-xs-12 col-sm-3">
-          <div class="business-card shorter">
-            <div class="business-img">
-              <%= cl_image_tag business.photo, height: 200, width: 261, crop: :fill %>
-            </div>
-            <div class="card-content">
-              <h3><%= business.name.upcase %> </h3>
-              <p><%= business.tokens.first.name %> </p>
+        <%= link_to business_path(business) do %>
+          <div class="col-xs-12 col-sm-3">
+            <div class="business-card shorter">
+              <div class="business-img">
+                <%= cl_image_tag business.photo, height: 200, width: 261, crop: :fill %>
+              </div>
+              <div class="card-content">
+                <h3><%= business.name.upcase %> </h3>
+                <p><%= business.tokens.first.name %> </p>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
       <% end %>
     </div>
