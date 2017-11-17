@@ -11,7 +11,7 @@
   </div>
   <hr class="line">
 </div>
-<div class="row">
+<div class="row pad">
   <div class="col-xs-12 col-sm-6">
     <div class="about-card">
       <h4 class="offerings">Founder:</h4><p><%= @business.user.first_name %> <%= @business.user.last_name %></p>
@@ -31,16 +31,21 @@
           <% @business.tokens.each do |token| %>
             <%= link_to token_path(token) do %>
               <div class="col-xs-12 col-sm-4">
-                <div class="token-card">
-                  <div class="token-card-img">
+                <div class="business-token-card widen-darken">
+                  <div class="business-token-card-img">
                     <%= cl_image_tag token.photo, height: 100, crop: :fill %>
                   </div>
-                  <div class="token-card-stacked">
-                    <div class="token-card-content">
-                      <h3><%= token.name.upcase %> </h3>
+                  <div class="business-token-card-stacked">
+                    <div class="business-token-card-content">
+                      <h3><%= token.name.upcase %> - £ <%= token.prices.last.value_gbp.round(0) %></h3>
                       <p>Offered By: <%= token.business.name %> </p>
+                      <% if (token.percentage_change_24h <= 0) %>
+                        <p class="red">Last 24hr: <%= token.percentage_change_24h %>%</p>
+                      <% else %>
+                        <p class="green">Last 24hr: +<%= token.percentage_change_24h %>%</p>
+                      <% end %>
                     </div>
-                    <div class="token-card-action">
+                    <div class="business-token-card-action">
                       <p>Follow Here: </p>
                       <%= render "shared/followbtn", token: token %>
                     </div>
