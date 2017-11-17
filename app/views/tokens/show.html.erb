@@ -34,9 +34,13 @@
     <div class="row">
       <div class="col-xs-12 col-md-4">
         <div class="card-area text-center">
-          <br><br><br>
+          <br><br>
           <p>Price</p>
           <h2> £<%= @token.prices.last.value_gbp.round(2) %> </h2>
+          <br>
+          <% if (@token.name == "Litecoin" || @token.name == "Bitcoin" || @token.name == "Ethereum") %>
+            <%= link_to "Buy Now", "https://www.coinbase.com/buy", class:"tokinfo-btn"%>
+          <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-md-4">
