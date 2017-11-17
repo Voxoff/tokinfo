@@ -5,6 +5,18 @@
 $body-font: "Montserrat", "Helvetica", "sans-serif";
 $headers-font: "Montserrat", "Helvetica", "sans-serif";
 
+p {
+  font-size: 14px;
+  color: rgba(0,0,0,0.5);
+  font-family: $body-font;
+}
+
+a {
+  font-size: 14px;
+  color: rgba(0,0,0,0.5);
+  font-family: $body-font;
+}
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";

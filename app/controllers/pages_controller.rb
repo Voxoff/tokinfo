@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @search = ""
-    @featured_tokens = Token.limit(4)
+    @featured_tokens = Token.limit(3)
     @tokens = Token.all
   end
 

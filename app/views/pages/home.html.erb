@@ -34,36 +34,43 @@
     </div>
   </div>
 </div>
+
 <div class="white-wrapper-section">
   <div class="container">
     <div class="text-center">
       <h2>Popular Right Now</h2>
     </div>
-      <div class="row">
-        <% @featured_tokens.each do |token| %>
-        <%= link_to token_path(token) do %>
-          <div class="col-xs-12 col-sm-3">
-            <div class="card">
-              <br>
-              <%= cl_image_tag token.photo, height: 150, width: 200, crop: :fill %>
-              <div class="card-content">
+    <div class="row">
+      <% @featured_tokens.each do |token| %>
+      <%= link_to token_path(token) do %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="token-card">
+            <div class="token-card-img">
+              <%= cl_image_tag token.photo, height: 100, crop: :fill %>
+            </div>
+            <div class="token-card-stacked">
+              <div class="token-card-content">
                 <h3><%= token.name.upcase %> </h3>
                 <p>Offered By: <%= token.business.name %> </p>
               </div>
-              <%= render "shared/followbtn", token: token %>
+              <div class="token-card-action">
+                <p>Follow Here: </p>
+                <%= render "shared/followbtn", token: token %>
+              </div>
             </div>
           </div>
-          <% end %>
+        </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>
+
 <div class="white-wrapper-section form-container">
   <div class="container">
     <div class="text-center">
       <h2>Leave us a message!</h2>
     </div>
-    <head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"></head>
     <br />
     <div class="inner contact">
           <div class="contact-form">
@@ -89,5 +96,6 @@
           </div>
       </div>
     </div>
+<div class="transparent-wrapper-section"></div>
 </div>
 
