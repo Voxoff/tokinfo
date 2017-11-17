@@ -86,25 +86,25 @@
     <div class="container">
       <div class="row">
           <div class="col-xs-12 col-sm-4">
-            <%= link_to token_path(@tokens.last) do %>
+            <%= link_to token_path(@tokens[3]) do %>
               <div class="token-card-no-hover">
                 <div class="token-card-img">
-                  <%= cl_image_tag @tokens.last.photo, height: 100, crop: :fill %>
+                  <%= cl_image_tag @tokens[3].photo, height: 100, crop: :fill %>
                 </div>
                 <div class="token-card-stacked">
                   <div class="token-card-content">
-                    <h3><%= @tokens.last.name.upcase %> </h3>
-                    <p>Price: £<%= @tokens.last.prices.last.value_gbp.round(2) %></p>
-                    <% if @tokens.last.percentage_change_24h > 0 %>
-                      <p class="green">1 Day Change: +<%= @tokens.last.percentage_change_24h %>%</p>
+                    <h3><%= @tokens[3].name.upcase %> </h3>
+                    <p>Price: £<%= @tokens[3].prices.last.value_gbp.round(2) %></p>
+                    <% if @tokens[3].percentage_change_24h > 0 %>
+                      <p class="green">1 Day Change: +<%= @tokens[3].percentage_change_24h %>%</p>
                     <% else %>
-                    <p class="red">1 Day Change: <%= @tokens.last.percentage_change_24h %>%</p>
+                    <p class="red">1 Day Change: <%= @tokens[3].percentage_change_24h %>%</p>
                     <% end %>
-                    <p>Offered By: <br> <%= @tokens.last.business.name %> </p>
+                    <p>Offered By: <br> <%= @tokens[3].business.name %> </p>
                   </div>
                   <div class="token-card-action">
                     <p>Follow Here: </p>
-                    <%= render "shared/followbtn", token: @tokens.last %>
+                    <%= render "shared/followbtn", token: @tokens[3] %>
                   </div>
                 </div>
               </div>
@@ -139,7 +139,8 @@
               </div>
               <div class="token-card-stacked">
                 <div class="token-card-content">
-                  <h3><%= token.name.upcase %> </h3>
+                  <h4><%= token.name.upcase %> </h4>
+                  <p>Price: £<%= token.prices.last.value_gbp.round %> </p>
                   <p>Offered By: <%= token.business.name %> </p>
                 </div>
                 <div class="token-card-action">
