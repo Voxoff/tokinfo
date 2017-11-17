@@ -1,18 +1,19 @@
+<p>Follow Here: </p>
 <% if current_user && Following.where(user_id: current_user.id, token_id: token.id).empty? %>
   <div class="follow-btn">
-    <%= link_to token_followings_path(token), method: :post, class: "btn btn-default followme" do %>
+    <%= link_to token_followings_path(token), method: :post, remote: true, class: "btn btn-default followme" do %>
         <i class="fa fa-star-o", aria-hidden="true"></i>
     <% end %>
   </div>
 <% elsif !current_user %>
 <div class="follow-btn">
-    <%= link_to token_followings_path(token), method: :post, class: "btn btn-default followme" do %>
+    <%= link_to token_followings_path(token), method: :post, remote: true, class: "btn btn-default followme" do %>
         <i class="fa fa-star",  aria-hidden="true"></i>
     <% end %>
   </div>
 <% else %>
   <div class="follow-btn">
-    <%= link_to token_following_path(token, Following.find_by(user_id: current_user.id, token_id: token.id)), method: :delete, class: "btn btn-default followme" do %>
+    <%= link_to token_following_path(token, Following.find_by(user_id: current_user.id, token_id: token.id)), method: :delete, remote: true, class: "btn btn-default followme" do %>
         <i class="fa fa-star", style="color:#6F95F8",  aria-hidden="true"></i>
     <% end %>
   </div>

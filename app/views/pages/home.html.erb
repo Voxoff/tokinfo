@@ -53,8 +53,7 @@
                 <h3><%= token.name.upcase %> </h3>
                 <p>Offered By: <%= token.business.name %> </p>
               </div>
-              <div class="token-card-action">
-                <p>Follow Here: </p>
+              <div class="token-card-action" id="btn-id-<%= token.id %>">
                 <%= render "shared/followbtn", token: token %>
               </div>
             </div>

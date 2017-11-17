@@ -13,7 +13,10 @@ class FollowingsController < ApplicationController
     @following.user_id = current_user.id
     authorize @following
     if @following.save
-      redirect_to user_path(@current_user)
+      respond_to do |format|
+        @token = Token.find(params[:token_id])
+        format.js
+      end
     else
       redirect_to root_path
     end
@@ -23,7 +26,10 @@ class FollowingsController < ApplicationController
     @following = Following.find(params[:id])
     authorize @following
     @following.destroy
-    redirect_to root_path
+    respond_to do |format|
+      @token = Token.find(params[:token_id])
+      format.js
+    end
   end
 
   private
