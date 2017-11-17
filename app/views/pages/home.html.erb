@@ -47,7 +47,7 @@
       <% @featured_tokens.each do |token| %>
       <%= link_to token_path(token) do %>
         <div class="col-xs-12 col-sm-4">
-          <div class="token-card">
+          <div class="token-card widen-darken">
             <div class="token-card-img">
               <%= cl_image_tag token.photo, height: 100, crop: :fill %>
             </div>
